@@ -25,9 +25,9 @@ const Footer = () => {
                 onError={() => handleImageError('footer icon')}
                 onLoad={() => handleImageLoad('footer icon')}
               />
-              <div className="flex flex-col">
-                <span className="text-2xl font-bold text-yellow-400 leading-none">Spin2Spark</span>
-                <span className="text-xs text-yellow-300 leading-none">Laundry | Dry Cleaning | Ironing</span>
+              <div className="flex flex-col justify-center">
+                <span className="text-2xl font-bold text-yellow-400 leading-tight">Spin2Spark</span>
+                <span className="text-xs text-yellow-300 leading-tight -mt-1">Laundry | Dry Cleaning | Ironing</span>
               </div>
             </div>
             <p className="text-gray-400 mb-4">

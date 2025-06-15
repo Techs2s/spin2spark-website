@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -9,7 +10,6 @@ import ServiceCard from "@/components/ServiceCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import Footer from "@/components/Footer";
 import BookingForm from "@/components/BookingForm";
-import GoogleReviews from "@/components/GoogleReviews";
 
 const Index = () => {
   const services = [
@@ -147,19 +147,6 @@ const Index = () => {
               <ServiceCard key={index} {...service} />
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Google Reviews Section */}
-      <section className="py-12 px-4 sm:py-16 bg-gray-50">
-        <div className="container mx-auto">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">What Our Customers Say</h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
-              Real reviews from our satisfied customers
-            </p>
-          </div>
-          <GoogleReviews />
         </div>
       </section>
 

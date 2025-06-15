@@ -1,3 +1,4 @@
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -88,17 +89,17 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-black">
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-white py-12 px-4 sm:py-16">
+      <section className="bg-black py-12 px-4 sm:py-16">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6 leading-tight">
               Complete Laundry & Dry Cleaning Services
             </h1>
-            <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 px-4">
+            <p className="text-lg sm:text-xl text-gray-300 mb-6 sm:mb-8 px-4">
               From everyday wash & fold to specialized dry cleaning, we provide comprehensive 
               laundry solutions to meet all your needs.
             </p>
@@ -107,31 +108,31 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section id="services-list" className="py-12 px-4 sm:py-16">
+      <section id="services-list" className="py-12 px-4 sm:py-16 bg-gray-900">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
+              <Card key={index} className="hover:shadow-lg transition-shadow bg-gray-800 border-gray-700">
                 <CardHeader>
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
-                    <CardTitle className="text-xl">{service.title}</CardTitle>
-                    <Badge variant="secondary" className="self-start">{service.price}</Badge>
+                    <CardTitle className="text-xl text-white">{service.title}</CardTitle>
+                    <Badge className="self-start bg-yellow-400 text-black">{service.price}</Badge>
                   </div>
-                  <CardDescription className="text-base">{service.description}</CardDescription>
+                  <CardDescription className="text-base text-gray-300">{service.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2 mb-4">
                     {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start text-sm text-gray-600">
-                        <Check className="w-4 h-4 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                      <li key={featureIndex} className="flex items-start text-sm text-gray-300">
+                        <Check className="w-4 h-4 text-yellow-400 mr-2 flex-shrink-0 mt-0.5" />
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <p className="text-sm text-gray-500 mb-4 italic">{service.additionalInfo}</p>
+                  <p className="text-sm text-gray-400 mb-4 italic">{service.additionalInfo}</p>
                   <Dialog>
                     <DialogTrigger asChild>
-                      <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                      <Button className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold">
                         Schedule Pickup
                       </Button>
                     </DialogTrigger>
@@ -150,77 +151,77 @@ const Services = () => {
       </section>
 
       {/* Service Process */}
-      <section className="py-12 px-4 sm:py-16 bg-gray-50">
+      <section className="py-12 px-4 sm:py-16 bg-black">
         <div className="container mx-auto">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">How It Works</h2>
-            <p className="text-lg sm:text-xl text-gray-600">Simple, convenient, and reliable</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">How It Works</h2>
+            <p className="text-lg sm:text-xl text-gray-300">Simple, convenient, and reliable</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-blue-600">1</span>
+              <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-black">1</span>
               </div>
-              <h3 className="font-semibold text-lg mb-2">Schedule Pickup</h3>
-              <p className="text-gray-600 text-sm">Book online or call us to schedule your free pickup</p>
+              <h3 className="font-semibold text-lg mb-2 text-white">Schedule Pickup</h3>
+              <p className="text-gray-400 text-sm">Book online or call us to schedule your free pickup</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-green-600">2</span>
+              <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-black">2</span>
               </div>
-              <h3 className="font-semibold text-lg mb-2">We Collect</h3>
-              <p className="text-gray-600 text-sm">Our team picks up your items at your convenience</p>
+              <h3 className="font-semibold text-lg mb-2 text-white">We Collect</h3>
+              <p className="text-gray-400 text-sm">Our team picks up your items at your convenience</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-purple-600">3</span>
+              <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-black">3</span>
               </div>
-              <h3 className="font-semibold text-lg mb-2">Expert Care</h3>
-              <p className="text-gray-600 text-sm">Professional cleaning using premium products</p>
+              <h3 className="font-semibold text-lg mb-2 text-white">Expert Care</h3>
+              <p className="text-gray-400 text-sm">Professional cleaning using premium products</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-orange-600">4</span>
+              <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-black">4</span>
               </div>
-              <h3 className="font-semibold text-lg mb-2">Fresh Delivery</h3>
-              <p className="text-gray-600 text-sm">Clean clothes delivered back to your door</p>
+              <h3 className="font-semibold text-lg mb-2 text-white">Fresh Delivery</h3>
+              <p className="text-gray-400 text-sm">Clean clothes delivered back to your door</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-12 px-4 sm:py-16">
+      <section id="faq" className="py-12 px-4 sm:py-16 bg-gray-900">
         <div className="container mx-auto">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Frequently Asked Questions</h2>
           </div>
           
           <div className="max-w-3xl mx-auto space-y-6">
-            <Card>
+            <Card className="bg-gray-800 border-gray-700">
               <CardHeader>
-                <CardTitle className="text-lg">What areas do you serve?</CardTitle>
+                <CardTitle className="text-lg text-white">What areas do you serve?</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">We currently serve the greater metropolitan area with free pickup and delivery within a 15-mile radius of our main facility.</p>
+                <p className="text-gray-300">We currently serve the greater metropolitan area with free pickup and delivery within a 15-mile radius of our main facility.</p>
               </CardContent>
             </Card>
             
-            <Card>
+            <Card className="bg-gray-800 border-gray-700">
               <CardHeader>
-                <CardTitle className="text-lg">How long does the service take?</CardTitle>
+                <CardTitle className="text-lg text-white">How long does the service take?</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">Most services are completed within 24-72 hours. Express services are available for same-day or next-day delivery with additional charges.</p>
+                <p className="text-gray-300">Most services are completed within 24-72 hours. Express services are available for same-day or next-day delivery with additional charges.</p>
               </CardContent>
             </Card>
             
-            <Card>
+            <Card className="bg-gray-800 border-gray-700">
               <CardHeader>
-                <CardTitle className="text-lg">Do you handle special fabrics?</CardTitle>
+                <CardTitle className="text-lg text-white">Do you handle special fabrics?</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">Yes! We specialize in delicate fabrics, leather, suede, and designer garments. Our expert team ensures proper care for all fabric types.</p>
+                <p className="text-gray-300">Yes! We specialize in delicate fabrics, leather, suede, and designer garments. Our expert team ensures proper care for all fabric types.</p>
               </CardContent>
             </Card>
           </div>

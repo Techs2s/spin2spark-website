@@ -45,9 +45,9 @@ const Header = () => {
               onError={() => handleImageError('icon')}
               onLoad={() => handleImageLoad('icon')}
             />
-            <div className="flex flex-col">
-              <span className="text-2xl font-bold text-yellow-400 leading-none">Spin2Spark</span>
-              <span className="text-xs text-yellow-300 leading-none">Laundry | Dry Cleaning | Ironing</span>
+            <div className="flex flex-col justify-center">
+              <span className="text-2xl font-bold text-yellow-400 leading-tight">Spin2Spark</span>
+              <span className="text-xs text-yellow-300 leading-tight -mt-1">Laundry | Dry Cleaning | Ironing</span>
             </div>
           </Link>
 
@@ -106,9 +106,9 @@ const Header = () => {
                     onError={() => handleImageError('mobile icon')}
                     onLoad={() => handleImageLoad('mobile icon')}
                   />
-                  <div className="flex flex-col">
-                    <span className="text-xl font-bold text-yellow-400 leading-none">Spin2Spark</span>
-                    <span className="text-xs text-yellow-300 leading-none">Laundry | Dry Cleaning | Ironing</span>
+                  <div className="flex flex-col justify-center">
+                    <span className="text-xl font-bold text-yellow-400 leading-tight">Spin2Spark</span>
+                    <span className="text-xs text-yellow-300 leading-tight -mt-1">Laundry | Dry Cleaning | Ironing</span>
                   </div>
                 </div>
                 {navItems.map((item) => (
