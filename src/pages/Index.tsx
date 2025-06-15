@@ -9,6 +9,7 @@ import ServiceCard from "@/components/ServiceCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import Footer from "@/components/Footer";
 import BookingForm from "@/components/BookingForm";
+import GoogleReviews from "@/components/GoogleReviews";
 
 const Index = () => {
   const services = [
@@ -86,7 +87,7 @@ const Index = () => {
                   <BookingForm />
                 </DialogContent>
               </Dialog>
-              <Link to="/services" className="w-full sm:w-auto">
+              <Link to="/services#services-list" className="w-full sm:w-auto">
                 <Button variant="outline" size="lg" className="border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black w-full">
                   View Services
                 </Button>
@@ -133,7 +134,7 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-12 px-4 sm:py-16 bg-black">
+      <section id="services-list" className="py-12 px-4 sm:py-16 bg-black">
         <div className="container mx-auto">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Our Services</h2>
@@ -146,6 +147,19 @@ const Index = () => {
               <ServiceCard key={index} {...service} />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Google Reviews Section */}
+      <section className="py-12 px-4 sm:py-16 bg-gray-50">
+        <div className="container mx-auto">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">What Our Customers Say</h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
+              Real reviews from our satisfied customers
+            </p>
+          </div>
+          <GoogleReviews />
         </div>
       </section>
 
@@ -189,7 +203,7 @@ const Index = () => {
                 <BookingForm />
               </DialogContent>
             </Dialog>
-            <Link to="/pricing" className="w-full sm:w-auto">
+            <Link to="/pricing#pricing-table" className="w-full sm:w-auto">
               <Button size="lg" variant="outline" className="border-black text-black hover:bg-black hover:text-yellow-400 w-full">
                 View Pricing
               </Button>

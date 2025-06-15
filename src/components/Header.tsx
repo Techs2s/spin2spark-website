@@ -32,16 +32,12 @@ const Header = () => {
     console.log(`Image loaded successfully: ${imageName}`);
   };
 
-  // Debug: Log the current paths
-  console.log('Header component rendered');
-  console.log('Icon path:', '/lovable-uploads/0dfb919c-c65a-49a8-a860-cf8de6dd85bd.png');
-
   return (
     <header className="bg-black shadow-sm border-b border-gray-800 sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-3">
             <img 
               src="/lovable-uploads/0dfb919c-c65a-49a8-a860-cf8de6dd85bd.png" 
               alt="Spin2Spark Icon" 
@@ -49,7 +45,10 @@ const Header = () => {
               onError={() => handleImageError('icon')}
               onLoad={() => handleImageLoad('icon')}
             />
-            <span className="text-2xl font-bold text-yellow-400 leading-none">Spin2Spark</span>
+            <div className="flex flex-col">
+              <span className="text-2xl font-bold text-yellow-400 leading-none">Spin2Spark</span>
+              <span className="text-xs text-yellow-300 leading-none">Laundry | Dry Cleaning | Ironing</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -107,7 +106,10 @@ const Header = () => {
                     onError={() => handleImageError('mobile icon')}
                     onLoad={() => handleImageLoad('mobile icon')}
                   />
-                  <span className="text-xl font-bold text-yellow-400 leading-none">Spin2Spark</span>
+                  <div className="flex flex-col">
+                    <span className="text-xl font-bold text-yellow-400 leading-none">Spin2Spark</span>
+                    <span className="text-xs text-yellow-300 leading-none">Laundry | Dry Cleaning | Ironing</span>
+                  </div>
                 </div>
                 {navItems.map((item) => (
                   <Link

@@ -38,7 +38,7 @@ const Pricing = () => {
       </section>
 
       {/* Individual Pricing */}
-      <section className="py-12 px-4 sm:py-16">
+      <section id="pricing-table" className="py-12 px-4 sm:py-16">
         <div className="container mx-auto">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Our Pricing</h2>

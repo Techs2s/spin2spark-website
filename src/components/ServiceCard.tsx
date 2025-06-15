@@ -2,8 +2,10 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
+import BookingForm from "@/components/BookingForm";
 
 interface ServiceCardProps {
   title: string;
@@ -40,11 +42,19 @@ const ServiceCard = ({ title, description, price, image, features }: ServiceCard
           ))}
         </ul>
         <div className="space-y-2">
-          <Link to="/contact">
-            <Button className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold">
-              Schedule Pickup
-            </Button>
-          </Link>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold">
+                Schedule Pickup
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+              <DialogHeader>
+                <DialogTitle>Schedule Your Pickup</DialogTitle>
+              </DialogHeader>
+              <BookingForm />
+            </DialogContent>
+          </Dialog>
           <Link to="/services">
             <Button variant="outline" className="w-full border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black">
               Learn More

@@ -1,10 +1,11 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Check, Clock, Shield, Truck } from "lucide-react";
+import BookingForm from "@/components/BookingForm";
 
 const Services = () => {
   const services = [
@@ -106,7 +107,7 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-12 px-4 sm:py-16">
+      <section id="services-list" className="py-12 px-4 sm:py-16">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             {services.map((service, index) => (
@@ -128,9 +129,19 @@ const Services = () => {
                     ))}
                   </ul>
                   <p className="text-sm text-gray-500 mb-4 italic">{service.additionalInfo}</p>
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                    Request Quote
-                  </Button>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                        Schedule Pickup
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+                      <DialogHeader>
+                        <DialogTitle>Schedule Your Pickup</DialogTitle>
+                      </DialogHeader>
+                      <BookingForm />
+                    </DialogContent>
+                  </Dialog>
                 </CardContent>
               </Card>
             ))}
@@ -174,6 +185,44 @@ const Services = () => {
               <h3 className="font-semibold text-lg mb-2">Fresh Delivery</h3>
               <p className="text-gray-600 text-sm">Clean clothes delivered back to your door</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="py-12 px-4 sm:py-16">
+        <div className="container mx-auto">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+          </div>
+          
+          <div className="max-w-3xl mx-auto space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg">What areas do you serve?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">We currently serve the greater metropolitan area with free pickup and delivery within a 15-mile radius of our main facility.</p>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg">How long does the service take?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">Most services are completed within 24-72 hours. Express services are available for same-day or next-day delivery with additional charges.</p>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg">Do you handle special fabrics?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">Yes! We specialize in delicate fabrics, leather, suede, and designer garments. Our expert team ensures proper care for all fabric types.</p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
