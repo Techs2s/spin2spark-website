@@ -1,3 +1,4 @@
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BookingForm from "@/components/BookingForm";
@@ -269,8 +270,8 @@ const Contact = () => {
                 <CardContent>
                   <div className="aspect-video bg-gray-700 rounded-lg flex items-center justify-center mb-4">
                     <img 
-                      src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e" 
-                      alt="Automated laundry technology representation"
+                      src="https://images.unsplash.com/photo-1721322800607-8c38375eef04" 
+                      alt="Modern laundry facility with professional equipment"
                       className="w-full h-full object-cover rounded-lg"
                     />
                   </div>

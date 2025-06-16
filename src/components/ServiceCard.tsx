@@ -1,5 +1,4 @@
 
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -17,18 +16,18 @@ interface ServiceCardProps {
 }
 
 const ServiceCard = ({ title, description, price, image, features }: ServiceCardProps) => {
-  // Replace human images with clipart/automation imagery
-  const getClipArtImage = (originalImage: string) => {
-    // Use robot/automation clipart for all service cards
-    return "https://images.unsplash.com/photo-1485827404703-89b55fcc595e";
+  // Use laundry-related clipart for all service cards
+  const getLaundryClipArt = (originalImage: string) => {
+    // Use laundry room/washing machine clipart
+    return "https://images.unsplash.com/photo-1721322800607-8c38375eef04";
   };
 
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-gray-800 border-gray-700">
       <div className="aspect-video overflow-hidden">
         <img 
-          src={getClipArtImage(image)} 
-          alt={`${title} automated service technology`}
+          src={getLaundryClipArt(image)} 
+          alt={`${title} laundry service equipment`}
           className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
         />
       </div>
@@ -74,4 +73,3 @@ const ServiceCard = ({ title, description, price, image, features }: ServiceCard
 };
 
 export default ServiceCard;
-
