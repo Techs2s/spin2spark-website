@@ -1,3 +1,4 @@
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BookingForm from "@/components/BookingForm";
@@ -25,19 +26,45 @@ const Contact = () => {
     try {
       console.log("Submitting contact form:", contactForm);
       
+      // Check if user session exists
+      const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+      
+      if (sessionError) {
+        console.error("Session error:", sessionError);
+        toast({
+          title: "Authentication Error",
+          description: "Please refresh the page and try again.",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      console.log("Current session:", session);
+      
       // Send email via edge function
       const { data, error } = await supabase.functions.invoke('send-form-email', {
         body: {
           formType: 'contact',
           data: contactForm
+        },
+        headers: {
+          'Content-Type': 'application/json',
         }
       });
 
+      console.log("Edge function response:", { data, error });
+
       if (error) {
         console.error("Email sending error:", error);
+        
+        let errorMessage = "Failed to send message. Please try again.";
+        if (error.message?.includes('JWT') || error.message?.includes('unauthorized')) {
+          errorMessage = "Authentication error. Please refresh the page and try again.";
+        }
+        
         toast({
           title: "Error",
-          description: "Failed to send message. Please try again.",
+          description: errorMessage,
           variant: "destructive"
         });
         return;
@@ -149,7 +176,6 @@ const Contact = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
-            {/* Contact Form */}
             <div>
               <Card className="bg-gray-800 border-gray-700">
                 <CardHeader>

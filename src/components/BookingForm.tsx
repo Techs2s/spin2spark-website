@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -52,19 +53,49 @@ const BookingForm = () => {
     try {
       console.log("Submitting booking form:", formData);
       
-      // Send email via edge function
+      // Check if user is authenticated
+      const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+      
+      if (sessionError) {
+        console.error("Session error:", sessionError);
+        toast({
+          title: "Authentication Error",
+          description: "Please refresh the page and try again.",
+          variant: "destructive"
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      console.log("Current session:", session);
+      
+      // Send email via edge function with explicit headers
       const { data, error } = await supabase.functions.invoke('send-form-email', {
         body: {
           formType: 'booking',
           data: formData
+        },
+        headers: {
+          'Content-Type': 'application/json',
         }
       });
 
+      console.log("Edge function response:", { data, error });
+
       if (error) {
         console.error("Email sending error:", error);
+        
+        // Provide more specific error messages
+        let errorMessage = "Failed to schedule pickup. Please try again.";
+        if (error.message?.includes('JWT') || error.message?.includes('unauthorized')) {
+          errorMessage = "Authentication error. Please refresh the page and try again.";
+        } else if (error.message?.includes('fetch')) {
+          errorMessage = "Network error. Please check your connection and try again.";
+        }
+        
         toast({
           title: "Error",
-          description: "Failed to schedule pickup. Please try again.",
+          description: errorMessage,
           variant: "destructive"
         });
         setIsSubmitting(false);
@@ -179,7 +210,6 @@ const BookingForm = () => {
           </div>
         </div>
 
-        {/* Pickup Details - Compact */}
         <div className="space-y-3">
           <div className="flex items-center gap-2">
             <MapPin className="w-4 h-4 text-gray-600" />
@@ -211,7 +241,6 @@ const BookingForm = () => {
           </div>
         </div>
 
-        {/* Special Instructions - Compact */}
         <div className="space-y-3">
           <div className="flex items-center gap-2">
             <FileText className="w-4 h-4 text-gray-600" />
@@ -250,7 +279,6 @@ const BookingForm = () => {
           </div>
         </div>
 
-        {/* Submit Button */}
         <Button 
           type="submit" 
           disabled={isSubmitting}
