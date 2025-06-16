@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BookingForm from "@/components/BookingForm";
@@ -8,6 +7,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const [contactForm, setContactForm] = useState({
@@ -19,14 +19,46 @@ const Contact = () => {
   });
   const { toast } = useToast();
 
-  const handleContactSubmit = (e: React.FormEvent) => {
+  const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you within 24 hours.",
-    });
-    console.log("Contact form submitted:", contactForm);
-    setContactForm({ name: "", email: "", phone: "", subject: "", message: "" });
+    
+    try {
+      console.log("Submitting contact form:", contactForm);
+      
+      // Send email via edge function
+      const { data, error } = await supabase.functions.invoke('send-form-email', {
+        body: {
+          formType: 'contact',
+          data: contactForm
+        }
+      });
+
+      if (error) {
+        console.error("Email sending error:", error);
+        toast({
+          title: "Error",
+          description: "Failed to send message. Please try again.",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      console.log("Email sent successfully:", data);
+      
+      toast({
+        title: "Message Sent!",
+        description: "We'll get back to you within 24 hours.",
+      });
+      
+      setContactForm({ name: "", email: "", phone: "", subject: "", message: "" });
+    } catch (error) {
+      console.error("Contact form submission error:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive"
+      });
+    }
   };
 
   const handleContactChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {

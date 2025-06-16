@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -7,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Clock, MapPin, Phone, User, FileText, CheckCircle2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const BookingForm = () => {
   const [formData, setFormData] = useState({
@@ -49,20 +49,48 @@ const BookingForm = () => {
     
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    toast({
-      title: "🎉 Pickup Scheduled Successfully!",
-      description: "We'll contact you within 30 minutes to confirm your pickup details.",
-    });
-    
-    console.log("Booking submitted:", formData);
-    setIsSubmitting(false);
-    
-    // Reset form
-    setFormData({ name: "", phone: "", address: "", instructions: "" });
-    setErrors({});
+    try {
+      console.log("Submitting booking form:", formData);
+      
+      // Send email via edge function
+      const { data, error } = await supabase.functions.invoke('send-form-email', {
+        body: {
+          formType: 'booking',
+          data: formData
+        }
+      });
+
+      if (error) {
+        console.error("Email sending error:", error);
+        toast({
+          title: "Error",
+          description: "Failed to schedule pickup. Please try again.",
+          variant: "destructive"
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      console.log("Booking email sent successfully:", data);
+      
+      toast({
+        title: "🎉 Pickup Scheduled Successfully!",
+        description: "We'll contact you within 30 minutes to confirm your pickup details.",
+      });
+      
+      // Reset form
+      setFormData({ name: "", phone: "", address: "", instructions: "" });
+      setErrors({});
+    } catch (error) {
+      console.error("Booking form submission error:", error);
+      toast({
+        title: "Error",
+        description: "Failed to schedule pickup. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
