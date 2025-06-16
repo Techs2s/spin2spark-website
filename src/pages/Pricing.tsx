@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PricingCalculator from "@/components/PricingCalculator";
@@ -96,14 +95,15 @@ const Pricing = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-black py-12 px-4 sm:py-16">
+      <section className="bg-black py-12 px-4 sm:py-16 sm:py-20">
         <div className="container mx-auto">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+          <div className="max-w-4xl mx-auto text-center">
+            <Badge className="mb-4 bg-yellow-400 text-black hover:bg-yellow-500">Transparent Pricing</Badge>
+            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
               Simple, Transparent Pricing
             </h1>
-            <p className="text-lg sm:text-xl text-gray-300 mb-6 sm:mb-8 px-4">
-              Pay only for what you need with our outlet-specific pricing
+            <p className="text-lg sm:text-xl text-gray-300 mb-6 sm:mb-8 max-w-3xl mx-auto px-4">
+              Pay only for what you need with our outlet-specific pricing. No hidden fees, just quality service.
             </p>
           </div>
         </div>
@@ -160,19 +160,19 @@ const Pricing = () => {
               >
                 <CollapsibleTrigger asChild>
                   <div className="w-full">
-                    <Card className="bg-blue-600 border-blue-500 hover:bg-blue-700 transition-colors cursor-pointer">
+                    <Card className="bg-yellow-400 border-yellow-400 hover:bg-yellow-500 transition-colors cursor-pointer">
                       <CardHeader className="py-4">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
-                            <div className="text-white">
+                            <div className="text-black">
                               {category.icon}
                             </div>
                             <div className="text-left">
-                              <CardTitle className="text-xl text-white">{category.title}</CardTitle>
-                              <CardDescription className="text-blue-100">{category.subtitle}</CardDescription>
+                              <CardTitle className="text-xl text-black">{category.title}</CardTitle>
+                              <CardDescription className="text-black/80">{category.subtitle}</CardDescription>
                             </div>
                           </div>
-                          <div className="text-white">
+                          <div className="text-black">
                             {openCategories.includes(categoryId) ? 
                               <ChevronUp className="w-6 h-6" /> : 
                               <ChevronDown className="w-6 h-6" />
@@ -186,12 +186,12 @@ const Pricing = () => {
                 <CollapsibleContent>
                   <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
                     {category.services.map((item, index) => (
-                      <Card key={index} className="bg-white">
+                      <Card key={index} className="bg-gray-800 border-gray-700">
                         <CardContent className="p-6">
                           <div className="text-center">
-                            <h3 className="font-semibold text-lg mb-2 text-gray-900">{item.service}</h3>
-                            <div className="text-2xl font-bold text-blue-600 mb-2">{item.price}</div>
-                            <p className="text-sm text-gray-600">{item.description}</p>
+                            <h3 className="font-semibold text-lg mb-2 text-white">{item.service}</h3>
+                            <div className="text-2xl font-bold text-yellow-400 mb-2">{item.price}</div>
+                            <p className="text-sm text-gray-300">{item.description}</p>
                           </div>
                         </CardContent>
                       </Card>
