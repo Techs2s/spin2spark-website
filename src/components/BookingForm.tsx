@@ -9,7 +9,11 @@ import { Calendar, Clock, MapPin, Phone, User, FileText, CheckCircle2 } from "lu
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 
-const BookingForm = () => {
+interface BookingFormProps {
+  onSuccess?: () => void;
+}
+
+const BookingForm = ({ onSuccess }: BookingFormProps) => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -85,6 +89,13 @@ const BookingForm = () => {
       // Reset form
       setFormData({ name: "", phone: "", address: "", instructions: "" });
       setErrors({});
+      
+      // Auto-close form after success
+      if (onSuccess) {
+        setTimeout(() => {
+          onSuccess();
+        }, 1500); // Small delay to let user see the success message
+      }
     } catch (error) {
       console.error("Booking form submission error:", error);
       toast({
@@ -108,33 +119,34 @@ const BookingForm = () => {
   };
 
   return (
-    <div className="space-y-4">
-      {/* Compact Header Section */}
+    <div className="space-y-4 max-w-full">
+      {/* Mobile-optimized Header Section */}
       <div className="text-center space-y-2">
-        <div className="flex items-center justify-center gap-2 flex-wrap">
-          <Badge className="bg-yellow-100 text-yellow-800 border-yellow-200 text-xs">
+        <div className="flex items-center justify-center gap-1 flex-wrap">
+          <Badge className="bg-yellow-100 text-yellow-800 border-yellow-200 text-xs px-2 py-1">
             <Calendar className="w-3 h-3 mr-1" />
-            Free Pickup & Delivery
+            Free Pickup
           </Badge>
-          <Badge className="bg-green-100 text-green-800 border-green-200 text-xs">
+          <Badge className="bg-green-100 text-green-800 border-green-200 text-xs px-2 py-1">
             <Clock className="w-3 h-3 mr-1" />
-            24-48 Hour Service
+            24-48hr Service
           </Badge>
         </div>
-        <p className="text-xs text-gray-600">
+        <p className="text-xs text-gray-600 px-2">
           Schedule your pickup in under 2 minutes. We'll handle the rest!
         </p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Personal Information - Compact */}
+        {/* Mobile-optimized Personal Information */}
         <div className="space-y-3">
           <div className="flex items-center gap-2">
             <User className="w-4 h-4 text-gray-600" />
             <h3 className="font-medium text-gray-900 text-sm">Personal Information</h3>
           </div>
           
-          <div className="grid grid-cols-2 gap-3">
+          {/* Stack on mobile, side by side on larger screens */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="space-y-1">
               <Label htmlFor="name" className="text-xs font-medium text-gray-700">
                 Full Name *
@@ -145,7 +157,7 @@ const BookingForm = () => {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Enter your full name"
-                className={`h-9 text-sm transition-all duration-200 ${
+                className={`h-10 text-sm transition-all duration-200 ${
                   errors.name 
                     ? "border-red-300 focus:border-red-500 focus:ring-red-200" 
                     : "border-gray-300 focus:border-yellow-500 focus:ring-yellow-200"
@@ -161,7 +173,7 @@ const BookingForm = () => {
                 Phone Number *
               </Label>
               <div className="relative">
-                <Phone className="absolute left-2 top-1/2 transform -translate-y-1/2 w-3 h-3 text-gray-400" />
+                <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
                 <Input
                   id="phone"
                   name="phone"
@@ -169,7 +181,7 @@ const BookingForm = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="(555) 123-4567"
-                  className={`pl-7 h-9 text-sm transition-all duration-200 ${
+                  className={`pl-9 h-10 text-sm transition-all duration-200 ${
                     errors.phone 
                       ? "border-red-300 focus:border-red-500 focus:ring-red-200" 
                       : "border-gray-300 focus:border-yellow-500 focus:ring-yellow-200"
@@ -183,6 +195,7 @@ const BookingForm = () => {
           </div>
         </div>
 
+        {/* Mobile-optimized Pickup Details */}
         <div className="space-y-3">
           <div className="flex items-center gap-2">
             <MapPin className="w-4 h-4 text-gray-600" />
@@ -199,7 +212,7 @@ const BookingForm = () => {
               value={formData.address}
               onChange={handleChange}
               placeholder="123 Main Street, City, State, ZIP"
-              className={`h-9 text-sm transition-all duration-200 ${
+              className={`h-10 text-sm transition-all duration-200 ${
                 errors.address 
                   ? "border-red-300 focus:border-red-500 focus:ring-red-200" 
                   : "border-gray-300 focus:border-yellow-500 focus:ring-yellow-200"
@@ -214,8 +227,9 @@ const BookingForm = () => {
           </div>
         </div>
 
+        {/* Mobile-optimized Special Instructions */}
         <div className="space-y-3">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             <FileText className="w-4 h-4 text-gray-600" />
             <h3 className="font-medium text-gray-900 text-sm">Special Instructions</h3>
             <Badge variant="secondary" className="text-xs">Optional</Badge>
@@ -226,7 +240,7 @@ const BookingForm = () => {
               name="instructions"
               value={formData.instructions}
               onChange={handleChange}
-              rows={2}
+              rows={3}
               placeholder="Any special requests, gate codes, or delivery instructions..."
               className="resize-none border-gray-300 focus:border-yellow-500 focus:ring-yellow-200 transition-all duration-200 text-sm"
             />
@@ -236,13 +250,13 @@ const BookingForm = () => {
           </div>
         </div>
 
-        {/* Compact Service Promise */}
+        {/* Mobile-optimized Service Promise */}
         <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200 rounded-lg p-3">
           <div className="flex items-start gap-2">
             <CheckCircle2 className="w-4 h-4 text-yellow-600 mt-0.5 flex-shrink-0" />
             <div className="space-y-1">
               <h4 className="font-medium text-yellow-800 text-sm">Our Promise</h4>
-              <div className="text-xs text-yellow-700 grid grid-cols-2 gap-1">
+              <div className="text-xs text-yellow-700 grid grid-cols-1 sm:grid-cols-2 gap-1">
                 <div>• Free pickup & delivery</div>
                 <div>• 24-48 hour service</div>
                 <div>• 100% satisfaction</div>
@@ -252,10 +266,11 @@ const BookingForm = () => {
           </div>
         </div>
 
+        {/* Mobile-optimized Submit Button */}
         <Button 
           type="submit" 
           disabled={isSubmitting}
-          className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 h-10 transition-all duration-200 transform hover:scale-[1.02] disabled:hover:scale-100"
+          className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 h-12 transition-all duration-200 transform hover:scale-[1.02] disabled:hover:scale-100 text-base"
         >
           {isSubmitting ? (
             <div className="flex items-center gap-2">
@@ -264,7 +279,7 @@ const BookingForm = () => {
             </div>
           ) : (
             <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4" />
+              <Calendar className="w-5 h-5" />
               Schedule My Pickup
             </div>
           )}
