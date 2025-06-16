@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
@@ -44,7 +43,7 @@ const About = () => {
       <section className="bg-black py-12 px-4 sm:py-20">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-4 bg-yellow-400 text-black hover:bg-yellow-500">Since 2009</Badge>
+            <Badge className="mb-4 bg-yellow-400 text-black hover:bg-yellow-500">Since 2023</Badge>
             <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
               About Spin2Spark
             </h1>
@@ -64,7 +63,7 @@ const About = () => {
               <div className="order-2 lg:order-1">
                 <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6">Our Story</h2>
                 <p className="text-gray-300 mb-4 sm:mb-6">
-                  Spin2Spark began in 2009 with a simple mission: to provide busy families and professionals 
+                  Spin2Spark began in 2023 with a simple mission: to provide busy families and professionals 
                   with a reliable, high-quality laundry service that saves time and delivers exceptional results.
                 </p>
                 <p className="text-gray-300 mb-4 sm:mb-6">
