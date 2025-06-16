@@ -62,7 +62,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-yellow-400">Contact Info</h3>
+            <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
             <div className="space-y-4 text-gray-400">
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-yellow-400 flex-shrink-0" />
@@ -79,7 +79,7 @@ const Footer = () => {
                   <div>Opp Govt School, Seetharam Palya</div>
                   <div>Main Road, Near Basava Nagar</div>
                   <div>Govt School, Bengaluru</div>
-                  <div className="text-yellow-400 font-semibold">Karnataka 560048</div>
+                  <div className="font-semibold">Karnataka 560048</div>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
