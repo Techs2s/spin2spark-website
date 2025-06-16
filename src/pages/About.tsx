@@ -1,3 +1,4 @@
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
@@ -77,8 +78,8 @@ const About = () => {
               </div>
               <div className="order-1 lg:order-2 aspect-square rounded-lg overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" 
-                  alt="Our laundry facility"
+                  src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e" 
+                  alt="White robot representing our automated cleaning technology"
                   className="w-full h-full object-cover"
                 />
               </div>
