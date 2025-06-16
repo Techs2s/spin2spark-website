@@ -1,3 +1,4 @@
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -16,7 +17,10 @@ const Outlets = () => {
       timing: "9:00 AM - 9:00 PM",
       rating: 4.7,
       reviews: 33,
-      image: "https://lh3.googleusercontent.com/p/AF1QipPFqRyc7NwOUTC4LYOYIomBFjDAp2h6JC61lpXd=s1360-w1360-h1020-rw"
+      image: "https://lh3.googleusercontent.com/p/AF1QipPFqRyc7NwOUTC4LYOYIomBFjDAp2h6JC61lpXd=s1360-w1360-h1020-rw",
+      manager: "Rajesh Kumar",
+      services: ["Wash & Fold", "Dry Cleaning", "Ironing", "Express Service"],
+      specialties: ["Premium fabric care", "Same-day delivery", "Eco-friendly cleaning", "Expert stain removal"]
     },
     {
       id: 2,
@@ -26,7 +30,10 @@ const Outlets = () => {
       timing: "9:00 AM - 9:00 PM",
       rating: 4.6,
       reviews: 29,
-      image: "https://lh3.googleusercontent.com/p/AF1QipMly0x13n1V9Lcwqsqh5pYt21EkAJGj9nOFEazf=s1360-w1360-h1020-rw"
+      image: "https://lh3.googleusercontent.com/p/AF1QipMly0x13n1V9Lcwqsqh5pYt21EkAJGj9nOFEazf=s1360-w1360-h1020-rw",
+      manager: "Priya Sharma",
+      services: ["Wash & Fold", "Dry Cleaning", "Ironing", "Pickup & Delivery"],
+      specialties: ["Quick turnaround", "Delicate fabric handling", "Professional pressing", "Quality assurance"]
     }
   ];
 
@@ -157,22 +164,22 @@ const Outlets = () => {
               <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <MapPin className="w-8 h-8 text-yellow-600" />
               </div>
-              <h3 className="font-semibold text-lg mb-2">Central Mumbai</h3>
-              <p className="text-gray-600 text-sm">Fort, Churchgate, Marine Drive, Colaba, Nariman Point</p>
+              <h3 className="font-semibold text-lg mb-2">Central Bengaluru</h3>
+              <p className="text-gray-600 text-sm">MG Road, Brigade Road, Commercial Street, Cubbon Park, Vidhana Soudha</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <MapPin className="w-8 h-8 text-yellow-600" />
               </div>
-              <h3 className="font-semibold text-lg mb-2">Western Suburbs</h3>
-              <p className="text-gray-600 text-sm">Bandra, Andheri, Borivali, Malad, Goregaon, Powai</p>
+              <h3 className="font-semibold text-lg mb-2">East Bengaluru</h3>
+              <p className="text-gray-600 text-sm">Whitefield, ITPL, Marathahalli, Brookefield, Varthur, Sarjapur</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <MapPin className="w-8 h-8 text-yellow-600" />
               </div>
-              <h3 className="font-semibold text-lg mb-2">Eastern Suburbs</h3>
-              <p className="text-gray-600 text-sm">Kurla, Vikhroli, Ghatkopar, Mulund, Thane</p>
+              <h3 className="font-semibold text-lg mb-2">North Bengaluru</h3>
+              <p className="text-gray-600 text-sm">Hebbal, RT Nagar, Kalyan Nagar, Banaswadi, Ramamurthy Nagar</p>
             </div>
           </div>
         </div>
