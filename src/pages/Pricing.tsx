@@ -1,3 +1,4 @@
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PricingCalculator from "@/components/PricingCalculator";
@@ -6,36 +7,45 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { Check, Star, MapPin, ChevronUp, ChevronDown, Shirt, Sparkles } from "lucide-react";
+import { Check, Star, MapPin, ChevronUp, ChevronDown, Shirt, Sparkles, MessageCircle } from "lucide-react";
 import { useState } from "react";
 
 const Pricing = () => {
-  const [selectedOutlet, setSelectedOutlet] = useState("downtown");
+  const [selectedOutlet, setSelectedOutlet] = useState("hoodi");
   const [openCategories, setOpenCategories] = useState<string[]>(["basic"]);
 
+  // Outlet data from outlets page
   const outlets = [
     {
-      id: "downtown",
-      name: "Downtown Central",
-      address: "123 MG Road, City Center, Mumbai 400001",
+      id: "hoodi",
+      name: "Spin2Spark Hoodi",
+      address: "S.Babureddy Complex, Seetharam Palya, Bengaluru 560048",
+      phone: "+91 7090100080",
+      timing: "9:00 AM - 9:00 PM",
+      rating: 4.7,
+      reviews: 33,
     },
     {
-      id: "residential",
-      name: "Residential Hub", 
-      address: "456 Linking Road, Bandra West, Mumbai 400050",
+      id: "aecs",
+      name: "Spin2Spark Aecs",
+      address: "Vaikuntam Layout, AECS Layout, Bengaluru, 560037",
+      phone: "+91 7090100081",
+      timing: "9:00 AM - 9:00 PM",
+      rating: 4.6,
+      reviews: 29,
     }
   ];
 
   const pricingByOutlet = {
-    downtown: {
+    hoodi: {
       basic: {
         title: "Basic Services",
         subtitle: "Essential laundry services for everyday needs",
         icon: <Shirt className="w-6 h-6" />,
         services: [
-          { service: "Wash & Fold", price: "From $2.50/lb", description: "Complete washing, drying, and folding service" },
-          { service: "Wash & Hang", price: "From $3.00/lb", description: "Washing and hanging for delicate items" },
-          { service: "Self-Service", price: "From $4.00/load", description: "Use our premium machines yourself" },
+          { service: "Wash & Fold", price: "₹79/kg", description: "Complete washing, drying, and folding service" },
+          { service: "Wash & Iron", price: "₹109/kg", description: "Washing with professional ironing" },
+          { service: "Steam Ironing", price: "From ₹12/pc", description: "Professional steam ironing service" },
         ]
       },
       premium: {
@@ -52,15 +62,15 @@ const Pricing = () => {
         ]
       }
     },
-    residential: {
+    aecs: {
       basic: {
         title: "Basic Services",
         subtitle: "Essential laundry services for everyday needs",
         icon: <Shirt className="w-6 h-6" />,
         services: [
-          { service: "Wash & Fold", price: "From $2.30/lb", description: "Complete washing, drying, and folding service" },
-          { service: "Wash & Hang", price: "From $2.80/lb", description: "Washing and hanging for delicate items" },
-          { service: "Self-Service", price: "From $3.50/load", description: "Use our premium machines yourself" },
+          { service: "Wash & Fold", price: "₹79/kg", description: "Complete washing, drying, and folding service" },
+          { service: "Wash & Iron", price: "₹109/kg", description: "Washing with professional ironing" },
+          { service: "Steam Ironing", price: "From ₹12/pc", description: "Professional steam ironing service" },
         ]
       },
       premium: {
@@ -88,6 +98,11 @@ const Pricing = () => {
         ? prev.filter(id => id !== categoryId)
         : [...prev, categoryId]
     );
+  };
+
+  const handleWhatsAppClick = (phone: string) => {
+    const whatsappUrl = `https://wa.me/${phone.replace(/[^0-9]/g, '')}`;
+    window.open(whatsappUrl, '_blank');
   };
 
   return (
@@ -132,9 +147,34 @@ const Pricing = () => {
               </SelectContent>
             </Select>
             {currentOutlet && (
-              <div className="mt-2 flex items-center text-sm text-gray-400">
-                <MapPin className="w-4 h-4 mr-1" />
-                <span>{currentOutlet.address}</span>
+              <div className="mt-4 p-4 bg-gray-800 rounded-lg">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center text-sm text-gray-400">
+                    <MapPin className="w-4 h-4 mr-1" />
+                    <span>{currentOutlet.address}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                    <span className="ml-1 text-sm font-semibold text-white">{currentOutlet.rating}</span>
+                    <span className="ml-1 text-sm text-gray-400">({currentOutlet.reviews})</span>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between">
+                  <div className="text-sm text-gray-400">
+                    <span className="font-medium text-white">Phone:</span> {currentOutlet.phone}
+                  </div>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="p-3 h-auto bg-green-600 hover:bg-green-700 text-white rounded-full shadow-lg transform hover:scale-110 transition-all duration-200"
+                    onClick={() => handleWhatsAppClick(currentOutlet.phone)}
+                  >
+                    <MessageCircle className="w-5 h-5" />
+                  </Button>
+                </div>
+                <div className="text-sm text-gray-400 mt-1">
+                  <span className="font-medium text-white">Hours:</span> {currentOutlet.timing}
+                </div>
               </div>
             )}
           </div>
