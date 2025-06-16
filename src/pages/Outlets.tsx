@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Phone, Clock, Star, Truck, Users } from "lucide-react";
+import { MapPin, Phone, Clock, Star, Truck, Users, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Outlets = () => {
@@ -18,7 +18,6 @@ const Outlets = () => {
       rating: 4.7,
       reviews: 33,
       image: "https://lh3.googleusercontent.com/p/AF1QipPFqRyc7NwOUTC4LYOYIomBFjDAp2h6JC61lpXd=s1360-w1360-h1020-rw",
-      manager: "Rajesh Kumar",
       services: ["Wash & Fold", "Dry Cleaning", "Ironing", "Express Service"],
       specialties: ["Premium fabric care", "Same-day delivery", "Eco-friendly cleaning", "Expert stain removal"]
     },
@@ -31,11 +30,15 @@ const Outlets = () => {
       rating: 4.6,
       reviews: 29,
       image: "https://lh3.googleusercontent.com/p/AF1QipMly0x13n1V9Lcwqsqh5pYt21EkAJGj9nOFEazf=s1360-w1360-h1020-rw",
-      manager: "Priya Sharma",
       services: ["Wash & Fold", "Dry Cleaning", "Ironing", "Pickup & Delivery"],
       specialties: ["Quick turnaround", "Delicate fabric handling", "Professional pressing", "Quality assurance"]
     }
   ];
+
+  const handleWhatsAppClick = (phone: string) => {
+    const whatsappUrl = `https://wa.me/${phone.replace(/[^0-9]/g, '')}`;
+    window.open(whatsappUrl, '_blank');
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -92,9 +95,6 @@ const Outlets = () => {
                       <span className="ml-1 text-sm text-gray-500">({outlet.reviews})</span>
                     </div>
                   </div>
-                  <CardDescription className="text-sm">
-                    Managed by {outlet.manager}
-                  </CardDescription>
                 </CardHeader>
                 <CardContent className="pt-0">
                   <div className="space-y-3 mb-4">
@@ -102,9 +102,19 @@ const Outlets = () => {
                       <MapPin className="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" />
                       <span className="text-xs sm:text-sm">{outlet.address}</span>
                     </div>
-                    <div className="flex items-center text-sm text-gray-600">
-                      <Phone className="w-4 h-4 mr-2 flex-shrink-0" />
-                      <span className="text-xs sm:text-sm">{outlet.phone}</span>
+                    <div className="flex items-center justify-between text-sm text-gray-600">
+                      <div className="flex items-center">
+                        <Phone className="w-4 h-4 mr-2 flex-shrink-0" />
+                        <span className="text-xs sm:text-sm">{outlet.phone}</span>
+                      </div>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="p-2 h-8 w-8 text-green-600 hover:text-green-700 hover:bg-green-50"
+                        onClick={() => handleWhatsAppClick(outlet.phone)}
+                      >
+                        <MessageCircle className="w-4 h-4" />
+                      </Button>
                     </div>
                     <div className="flex items-center text-sm text-gray-600">
                       <Clock className="w-4 h-4 mr-2 flex-shrink-0" />
@@ -157,30 +167,14 @@ const Outlets = () => {
         <div className="container mx-auto">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Service Coverage</h2>
-            <p className="text-lg sm:text-xl text-gray-600">We serve these areas with free pickup and delivery</p>
+            <p className="text-lg sm:text-xl text-gray-600">We serve East Bengaluru with free pickup and delivery</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MapPin className="w-8 h-8 text-yellow-600" />
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Central Bengaluru</h3>
-              <p className="text-gray-600 text-sm">MG Road, Brigade Road, Commercial Street, Cubbon Park, Vidhana Soudha</p>
+          <div className="max-w-md mx-auto text-center">
+            <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <MapPin className="w-8 h-8 text-yellow-600" />
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MapPin className="w-8 h-8 text-yellow-600" />
-              </div>
-              <h3 className="font-semibold text-lg mb-2">East Bengaluru</h3>
-              <p className="text-gray-600 text-sm">Whitefield, ITPL, Marathahalli, Brookefield, Varthur, Sarjapur</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MapPin className="w-8 h-8 text-yellow-600" />
-              </div>
-              <h3 className="font-semibold text-lg mb-2">North Bengaluru</h3>
-              <p className="text-gray-600 text-sm">Hebbal, RT Nagar, Kalyan Nagar, Banaswadi, Ramamurthy Nagar</p>
-            </div>
+            <h3 className="font-semibold text-lg mb-2">East Bengaluru</h3>
+            <p className="text-gray-600 text-sm">Whitefield, ITPL, Marathahalli, Brookefield, Varthur, Sarjapur, Hoodi, AECS Layout</p>
           </div>
         </div>
       </section>
