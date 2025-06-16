@@ -53,30 +53,11 @@ const BookingForm = () => {
     try {
       console.log("Submitting booking form:", formData);
       
-      // Check if user is authenticated
-      const { data: { session }, error: sessionError } = await supabase.auth.getSession();
-      
-      if (sessionError) {
-        console.error("Session error:", sessionError);
-        toast({
-          title: "Authentication Error",
-          description: "Please refresh the page and try again.",
-          variant: "destructive"
-        });
-        setIsSubmitting(false);
-        return;
-      }
-
-      console.log("Current session:", session);
-      
-      // Send email via edge function with explicit headers
+      // Send email via edge function directly without authentication
       const { data, error } = await supabase.functions.invoke('send-form-email', {
         body: {
           formType: 'booking',
           data: formData
-        },
-        headers: {
-          'Content-Type': 'application/json',
         }
       });
 
@@ -85,17 +66,9 @@ const BookingForm = () => {
       if (error) {
         console.error("Email sending error:", error);
         
-        // Provide more specific error messages
-        let errorMessage = "Failed to schedule pickup. Please try again.";
-        if (error.message?.includes('JWT') || error.message?.includes('unauthorized')) {
-          errorMessage = "Authentication error. Please refresh the page and try again.";
-        } else if (error.message?.includes('fetch')) {
-          errorMessage = "Network error. Please check your connection and try again.";
-        }
-        
         toast({
           title: "Error",
-          description: errorMessage,
+          description: "Failed to schedule pickup. Please try again.",
           variant: "destructive"
         });
         setIsSubmitting(false);

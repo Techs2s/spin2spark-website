@@ -26,29 +26,11 @@ const Contact = () => {
     try {
       console.log("Submitting contact form:", contactForm);
       
-      // Check if user session exists
-      const { data: { session }, error: sessionError } = await supabase.auth.getSession();
-      
-      if (sessionError) {
-        console.error("Session error:", sessionError);
-        toast({
-          title: "Authentication Error",
-          description: "Please refresh the page and try again.",
-          variant: "destructive"
-        });
-        return;
-      }
-
-      console.log("Current session:", session);
-      
-      // Send email via edge function
+      // Send email via edge function directly without authentication
       const { data, error } = await supabase.functions.invoke('send-form-email', {
         body: {
           formType: 'contact',
           data: contactForm
-        },
-        headers: {
-          'Content-Type': 'application/json',
         }
       });
 
@@ -57,14 +39,9 @@ const Contact = () => {
       if (error) {
         console.error("Email sending error:", error);
         
-        let errorMessage = "Failed to send message. Please try again.";
-        if (error.message?.includes('JWT') || error.message?.includes('unauthorized')) {
-          errorMessage = "Authentication error. Please refresh the page and try again.";
-        }
-        
         toast({
           title: "Error",
-          description: errorMessage,
+          description: "Failed to send message. Please try again.",
           variant: "destructive"
         });
         return;
