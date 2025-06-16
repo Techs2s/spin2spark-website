@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -38,22 +37,22 @@ const Index = () => {
 
   const testimonials = [
     {
-      name: "Sarah Johnson",
+      name: "",
       rating: 5,
-      comment: "Spin2Spark has been a lifesaver! Their pickup and delivery service is so convenient, and my clothes always come back perfectly clean.",
-      location: "Downtown"
+      comment: "Very professional team in place I have tried many before spin2spark. No one can match service quality and speed of delivery like them.",
+      location: "Bengaluru"
     },
     {
-      name: "Mike Chen",
+      name: "",
       rating: 5,
-      comment: "Best dry cleaning service in the city. They got out a stain I thought was impossible to remove. Highly recommend!",
-      location: "Midtown"
+      comment: "I have been using this laundry service for the past six months, and I continue to be thoroughly impressed. The quality of the cleaning is exceptional, and my clothes always come back looking and feeling fresh. Your punctual pick-up and drop-off service has been consistently reliable, making the entire process incredibly convenient. I appreciate the excellent service you provide and will certainly continue to use your service. Thank you!",
+      location: "Bengaluru"
     },
     {
-      name: "Emily Rodriguez",
+      name: "",
       rating: 5,
-      comment: "Professional, reliable, and affordable. I've been using Spin2Spark for over a year and they never disappoint.",
-      location: "Uptown"
+      comment: "Timely pickup and delivery after wash. Very punctual.",
+      location: "Bengaluru"
     }
   ];
 
