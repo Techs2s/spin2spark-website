@@ -57,8 +57,8 @@ const Pricing = () => {
           { service: "Dry Cleaning - Pants", price: "₹89", description: "Creased and pressed" },
           { service: "Dry Cleaning - Suits", price: "₹299", description: "Jacket and pants" },
           { service: "Dry Cleaning - Dresses", price: "₹199", description: "Varies by style" },
-          { service: "Comforters/Blankets", price: "₹1,799", description: "Queen size" },
-          { service: "Wedding Dress Cleaning", price: "₹6,499", description: "Includes preservation box" }
+          { service: "Comforters/Blankets", price: "₹399", description: "Queen size" },
+          { service: "Shoes", price: "₹279", description: "Sports and Convas Shoes" }
         ]
       }
     },
@@ -81,9 +81,9 @@ const Pricing = () => {
           { service: "Dry Cleaning - Shirts", price: "₹79", description: "Professional pressing included" },
           { service: "Dry Cleaning - Pants", price: "₹119", description: "Creased and pressed" },
           { service: "Dry Cleaning - Suits", price: "₹279", description: "Jacket and pants" },
-          { service: "Dry Cleaning - Dresses", price: "₹179", description: "Varies by style" },
-          { service: "Comforters/Blankets", price: "₹1,599", description: "Queen size" },
-          { service: "Wedding Dress Cleaning", price: "₹5,999", description: "Includes preservation box" }
+          { service: "Dry Cleaning - Dresses", price: "₹199", description: "Varies by style" },
+          { service: "Comforters/Blankets", price: "₹399", description: "Queen size" },
+          { service: "Shoes", price: "₹279", description: "Sports and Convas Shoes" }
         ]
       }
     }
