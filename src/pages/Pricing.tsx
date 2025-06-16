@@ -58,7 +58,7 @@ const Pricing = () => {
           { service: "Dry Cleaning - Suits", price: "₹299", description: "Jacket and pants" },
           { service: "Dry Cleaning - Dresses", price: "₹199", description: "Varies by style" },
           { service: "Comforters/Blankets", price: "₹399", description: "Queen size" },
-          { service: "Shoes", price: "₹279", description: "Sports and Convas Shoes" }
+          { service: "Shoes", price: "₹279", description: "Sports and Canvas Shoes" }
         ]
       }
     },
@@ -83,7 +83,7 @@ const Pricing = () => {
           { service: "Dry Cleaning - Suits", price: "₹279", description: "Jacket and pants" },
           { service: "Dry Cleaning - Dresses", price: "₹199", description: "Varies by style" },
           { service: "Comforters/Blankets", price: "₹399", description: "Queen size" },
-          { service: "Shoes", price: "₹279", description: "Sports and Convas Shoes" }
+          { service: "Shoes", price: "₹279", description: "Sports and Canvas Shoes" }
         ]
       }
     }
