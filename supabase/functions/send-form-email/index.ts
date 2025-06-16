@@ -76,12 +76,12 @@ const handler = async (req: Request): Promise<Response> => {
       `;
     }
 
-    console.log(`Sending ${formType} form email to support@spin2spark.com`);
+    console.log(`Sending ${formType} form email to spin2spark@gmail.com`);
     console.log("Email subject:", subject);
 
     const emailResponse = await resend.emails.send({
       from: "Spin2Spark Forms <onboarding@resend.dev>",
-      to: ["support@spin2spark.com"],
+      to: ["spin2spark@gmail.com"],
       subject: subject,
       html: htmlContent,
     });
