@@ -17,7 +17,7 @@ const Outlets = () => {
       timing: "9:00 AM - 9:00 PM",
       rating: 4.7,
       reviews: 33,
-      image: "https://lh3.googleusercontent.com/p/AF1QipPFqRyc7NwOUTC4LYOYIomBFjDAp2h6JC61lpXd=s1360-w1360-h1020-rw",
+      image: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=500&h=300&fit=crop",
       services: ["Wash & Fold", "Dry Cleaning", "Ironing", "Express Service"],
       specialties: ["Premium fabric care", "Same-day delivery", "Eco-friendly cleaning", "Expert stain removal"]
     },
@@ -29,9 +29,27 @@ const Outlets = () => {
       timing: "9:00 AM - 9:00 PM",
       rating: 4.6,
       reviews: 29,
-      image: "https://lh3.googleusercontent.com/p/AF1QipMly0x13n1V9Lcwqsqh5pYt21EkAJGj9nOFEazf=s1360-w1360-h1020-rw",
+      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=300&fit=crop",
       services: ["Wash & Fold", "Dry Cleaning", "Ironing", "Pickup & Delivery"],
       specialties: ["Quick turnaround", "Delicate fabric handling", "Professional pressing", "Quality assurance"]
+    }
+  ];
+
+  const reviews = [
+    {
+      comment: "Very professional team in place I have tried many before spin2spark. No one can match service quality and speed of delivery like them.",
+      location: "Bengaluru",
+      rating: 5
+    },
+    {
+      comment: "I have been using this laundry service for the past six months, and I continue to be thoroughly impressed. The quality of the cleaning is exceptional, and my clothes always come back looking and feeling fresh. Your punctual pick-up and drop-off service has been consistently reliable, making the entire process incredibly convenient. I appreciate the excellent service you provide and will certainly continue to use your service. Thank you!",
+      location: "Bengaluru",
+      rating: 5
+    },
+    {
+      comment: "Timely pickup and delivery after wash. Very punctual.",
+      location: "Bengaluru",
+      rating: 5
     }
   ];
 
@@ -110,10 +128,11 @@ const Outlets = () => {
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="p-2 h-8 w-8 text-green-600 hover:text-green-700 hover:bg-green-50"
+                        className="p-2 h-10 w-10 bg-green-500 hover:bg-green-600 text-white rounded-full transition-colors duration-200"
                         onClick={() => handleWhatsAppClick(outlet.phone)}
+                        title="Contact on WhatsApp"
                       >
-                        <MessageCircle className="w-4 h-4" />
+                        <MessageCircle className="w-5 h-5 fill-current" />
                       </Button>
                     </div>
                     <div className="flex items-center text-sm text-gray-600">
@@ -162,8 +181,37 @@ const Outlets = () => {
         </div>
       </section>
 
-      {/* Service Areas */}
+      {/* Customer Reviews */}
       <section className="py-12 px-4 sm:py-16 bg-gray-50">
+        <div className="container mx-auto">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">What Our Customers Say</h2>
+            <p className="text-lg sm:text-xl text-gray-600">Real feedback from our satisfied customers</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {reviews.map((review, index) => (
+              <Card key={index} className="h-full">
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-4">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                  <p className="text-gray-700 mb-4 italic">"{review.comment}"</p>
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <p className="text-sm text-gray-500">{review.location}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Service Areas */}
+      <section className="py-12 px-4 sm:py-16">
         <div className="container mx-auto">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Service Coverage</h2>
