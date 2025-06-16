@@ -37,17 +37,17 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-black">
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-white py-16">
-        <div className="container mx-auto px-4">
+      <section className="bg-black py-16 px-4">
+        <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl font-bold text-white mb-6">
               Get in Touch
             </h1>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-xl text-gray-300 mb-8">
               Ready to experience the best laundry service in town? Contact us today!
             </p>
             <Dialog>
@@ -68,50 +68,50 @@ const Contact = () => {
       </section>
 
       {/* Contact Info */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
+      <section className="py-16 px-4 bg-gray-900">
+        <div className="container mx-auto">
           <div className="grid md:grid-cols-4 gap-8 mb-16">
-            <Card className="text-center">
+            <Card className="text-center bg-gray-800 border-gray-700">
               <CardContent className="p-6">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Phone className="w-8 h-8 text-blue-600" />
+                <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Phone className="w-8 h-8 text-black" />
                 </div>
-                <h3 className="font-semibold text-lg mb-2">Call Us</h3>
-                <p className="text-gray-600">+91 7090100080</p>
-                <p className="text-sm text-gray-500 mt-1">Mon-Sat: 7AM-9PM</p>
+                <h3 className="font-semibold text-lg mb-2 text-white">Call Us</h3>
+                <p className="text-gray-300">+91 7090100080</p>
+                <p className="text-sm text-gray-400 mt-1">Mon-Sat: 7AM-9PM</p>
               </CardContent>
             </Card>
 
-            <Card className="text-center">
+            <Card className="text-center bg-gray-800 border-gray-700">
               <CardContent className="p-6">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Mail className="w-8 h-8 text-green-600" />
+                <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Mail className="w-8 h-8 text-black" />
                 </div>
-                <h3 className="font-semibold text-lg mb-2">Email Us</h3>
-                <p className="text-gray-600">support@spin2spark.com</p>
-                <p className="text-sm text-gray-500 mt-1">24/7 Support</p>
+                <h3 className="font-semibold text-lg mb-2 text-white">Email Us</h3>
+                <p className="text-gray-300">support@spin2spark.com</p>
+                <p className="text-sm text-gray-400 mt-1">24/7 Support</p>
               </CardContent>
             </Card>
 
-            <Card className="text-center">
+            <Card className="text-center bg-gray-800 border-gray-700">
               <CardContent className="p-6">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <MapPin className="w-8 h-8 text-purple-600" />
+                <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <MapPin className="w-8 h-8 text-black" />
                 </div>
-                <h3 className="font-semibold text-lg mb-2">Visit Us</h3>
-                <p className="text-gray-600">123 Main St</p>
-                <p className="text-sm text-gray-500 mt-1">City, State 12345</p>
+                <h3 className="font-semibold text-lg mb-2 text-white">Visit Us</h3>
+                <p className="text-gray-300">123 Main St</p>
+                <p className="text-sm text-gray-400 mt-1">City, State 12345</p>
               </CardContent>
             </Card>
 
-            <Card className="text-center">
+            <Card className="text-center bg-gray-800 border-gray-700">
               <CardContent className="p-6">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Clock className="w-8 h-8 text-orange-600" />
+                <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Clock className="w-8 h-8 text-black" />
                 </div>
-                <h3 className="font-semibold text-lg mb-2">Hours</h3>
-                <p className="text-gray-600">Mon-Sat: 7AM-9PM</p>
-                <p className="text-sm text-gray-500 mt-1">Sunday: 9AM-6PM</p>
+                <h3 className="font-semibold text-lg mb-2 text-white">Hours</h3>
+                <p className="text-gray-300">Mon-Sat: 7AM-9PM</p>
+                <p className="text-sm text-gray-400 mt-1">Sunday: 9AM-6PM</p>
               </CardContent>
             </Card>
           </div>
@@ -119,13 +119,13 @@ const Contact = () => {
           <div className="grid md:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div>
-              <Card>
+              <Card className="bg-gray-800 border-gray-700">
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <MessageCircle className="w-5 h-5 text-blue-600" />
+                  <CardTitle className="flex items-center gap-2 text-white">
+                    <MessageCircle className="w-5 h-5 text-yellow-400" />
                     Send Us a Message
                   </CardTitle>
-                  <CardDescription>
+                  <CardDescription className="text-gray-400">
                     Have a question or need help? We're here to assist you!
                   </CardDescription>
                 </CardHeader>
@@ -133,47 +133,47 @@ const Contact = () => {
                   <form onSubmit={handleContactSubmit} className="space-y-4">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium mb-2">Name</label>
+                        <label className="block text-sm font-medium mb-2 text-white">Name</label>
                         <input
                           type="text"
                           name="name"
                           value={contactForm.name}
                           onChange={handleContactChange}
-                          className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                          className="w-full p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 bg-gray-700 text-white"
                           required
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium mb-2">Phone</label>
+                        <label className="block text-sm font-medium mb-2 text-white">Phone</label>
                         <input
                           type="tel"
                           name="phone"
                           value={contactForm.phone}
                           onChange={handleContactChange}
-                          className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                          className="w-full p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 bg-gray-700 text-white"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium mb-2">Email</label>
+                      <label className="block text-sm font-medium mb-2 text-white">Email</label>
                       <input
                         type="email"
                         name="email"
                         value={contactForm.email}
                         onChange={handleContactChange}
-                        className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 bg-gray-700 text-white"
                         required
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium mb-2">Subject</label>
+                      <label className="block text-sm font-medium mb-2 text-white">Subject</label>
                       <select
                         name="subject"
                         value={contactForm.subject}
                         onChange={handleContactChange}
-                        className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 bg-gray-700 text-white"
                         required
                       >
                         <option value="">Select a subject</option>
@@ -186,18 +186,18 @@ const Contact = () => {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium mb-2">Message</label>
+                      <label className="block text-sm font-medium mb-2 text-white">Message</label>
                       <textarea
                         name="message"
                         value={contactForm.message}
                         onChange={handleContactChange}
                         rows={5}
-                        className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 bg-gray-700 text-white"
                         required
                       />
                     </div>
 
-                    <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
+                    <Button type="submit" className="w-full bg-yellow-400 hover:bg-yellow-500 text-black">
                       Send Message
                     </Button>
                   </form>
@@ -207,44 +207,44 @@ const Contact = () => {
 
             {/* Map and Additional Info */}
             <div className="space-y-8">
-              <Card>
+              <Card className="bg-gray-800 border-gray-700">
                 <CardHeader>
-                  <CardTitle>Our Location</CardTitle>
-                  <CardDescription>Visit our facility or schedule a pickup</CardDescription>
+                  <CardTitle className="text-white">Our Location</CardTitle>
+                  <CardDescription className="text-gray-400">Visit our facility or schedule a pickup</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center mb-4">
-                    <p className="text-gray-500">Interactive Map Coming Soon</p>
+                  <div className="aspect-video bg-gray-700 rounded-lg flex items-center justify-center mb-4">
+                    <p className="text-gray-400">Interactive Map Coming Soon</p>
                   </div>
                   <div className="space-y-2">
-                    <p className="font-medium">Spin2Spark Laundry Services</p>
-                    <p className="text-gray-600">123 Main Street</p>
-                    <p className="text-gray-600">City, State 12345</p>
-                    <p className="text-gray-600">India</p>
+                    <p className="font-medium text-white">Spin2Spark Laundry Services</p>
+                    <p className="text-gray-300">123 Main Street</p>
+                    <p className="text-gray-300">City, State 12345</p>
+                    <p className="text-gray-300">India</p>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="bg-gray-800 border-gray-700">
                 <CardHeader>
-                  <CardTitle>Quick Facts</CardTitle>
+                  <CardTitle className="text-white">Quick Facts</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Service Area:</span>
-                    <span className="font-medium">15 km radius</span>
+                    <span className="text-gray-300">Service Area:</span>
+                    <span className="font-medium text-white">15 km radius</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Pickup Time:</span>
-                    <span className="font-medium">Same day</span>
+                    <span className="text-gray-300">Pickup Time:</span>
+                    <span className="font-medium text-white">Same day</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Turnaround:</span>
-                    <span className="font-medium">24-72 hours</span>
+                    <span className="text-gray-300">Turnaround:</span>
+                    <span className="font-medium text-white">24-72 hours</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Emergency Service:</span>
-                    <span className="font-medium">Available</span>
+                    <span className="text-gray-300">Emergency Service:</span>
+                    <span className="font-medium text-white">Available</span>
                   </div>
                 </CardContent>
               </Card>

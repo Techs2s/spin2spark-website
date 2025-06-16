@@ -6,11 +6,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Check, Star, MapPin } from "lucide-react";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Check, Star, MapPin, ChevronUp, ChevronDown, Shirt, Sparkles } from "lucide-react";
 import { useState } from "react";
 
 const Pricing = () => {
   const [selectedOutlet, setSelectedOutlet] = useState("downtown");
+  const [openCategories, setOpenCategories] = useState<string[]>(["basic"]);
 
   const outlets = [
     {
@@ -27,41 +29,67 @@ const Pricing = () => {
 
   const pricingByOutlet = {
     downtown: {
-      "Wash & Care": [
-        { service: "Wash & Fold", price: "₹79/kg", description: "Minimum 2 kg" },
-        { service: "Wash & Iron", price: "₹109/kg", description: "Professional pressing included" },
-      ],
-      "Dry Cleaning - Clothing": [
-        { service: "Shirts", price: "₹89", description: "Professional pressing included" },
-        { service: "Pants", price: "₹129", description: "Creased and pressed" },
-        { service: "Suits", price: "₹299", description: "Jacket and pants" },
-        { service: "Dresses", price: "₹199", description: "Varies by style" },
-      ],
-      "Premium Services": [
-        { service: "Comforters/Blankets", price: "₹1,799", description: "Queen size" },
-        { service: "Wedding Dress Cleaning", price: "₹6,499", description: "Includes preservation box" }
-      ]
+      basic: {
+        title: "Basic Services",
+        subtitle: "Essential laundry services for everyday needs",
+        icon: <Shirt className="w-6 h-6" />,
+        services: [
+          { service: "Wash & Fold", price: "From $2.50/lb", description: "Complete washing, drying, and folding service" },
+          { service: "Wash & Hang", price: "From $3.00/lb", description: "Washing and hanging for delicate items" },
+          { service: "Self-Service", price: "From $4.00/load", description: "Use our premium machines yourself" },
+        ]
+      },
+      premium: {
+        title: "Premium Services",
+        subtitle: "High-quality specialty cleaning services",
+        icon: <Sparkles className="w-6 h-6" />,
+        services: [
+          { service: "Dry Cleaning - Shirts", price: "₹89", description: "Professional pressing included" },
+          { service: "Dry Cleaning - Pants", price: "₹129", description: "Creased and pressed" },
+          { service: "Dry Cleaning - Suits", price: "₹299", description: "Jacket and pants" },
+          { service: "Dry Cleaning - Dresses", price: "₹199", description: "Varies by style" },
+          { service: "Comforters/Blankets", price: "₹1,799", description: "Queen size" },
+          { service: "Wedding Dress Cleaning", price: "₹6,499", description: "Includes preservation box" }
+        ]
+      }
     },
     residential: {
-      "Wash & Care": [
-        { service: "Wash & Fold", price: "₹69/kg", description: "Minimum 2 kg" },
-        { service: "Wash & Iron", price: "₹99/kg", description: "Professional pressing included" },
-      ],
-      "Dry Cleaning - Clothing": [
-        { service: "Shirts", price: "₹79", description: "Professional pressing included" },
-        { service: "Pants", price: "₹119", description: "Creased and pressed" },
-        { service: "Suits", price: "₹279", description: "Jacket and pants" },
-        { service: "Dresses", price: "₹179", description: "Varies by style" },
-      ],
-      "Premium Services": [
-        { service: "Comforters/Blankets", price: "₹1,599", description: "Queen size" },
-        { service: "Wedding Dress Cleaning", price: "₹5,999", description: "Includes preservation box" }
-      ]
+      basic: {
+        title: "Basic Services",
+        subtitle: "Essential laundry services for everyday needs",
+        icon: <Shirt className="w-6 h-6" />,
+        services: [
+          { service: "Wash & Fold", price: "From $2.30/lb", description: "Complete washing, drying, and folding service" },
+          { service: "Wash & Hang", price: "From $2.80/lb", description: "Washing and hanging for delicate items" },
+          { service: "Self-Service", price: "From $3.50/load", description: "Use our premium machines yourself" },
+        ]
+      },
+      premium: {
+        title: "Premium Services",
+        subtitle: "High-quality specialty cleaning services",
+        icon: <Sparkles className="w-6 h-6" />,
+        services: [
+          { service: "Dry Cleaning - Shirts", price: "₹79", description: "Professional pressing included" },
+          { service: "Dry Cleaning - Pants", price: "₹119", description: "Creased and pressed" },
+          { service: "Dry Cleaning - Suits", price: "₹279", description: "Jacket and pants" },
+          { service: "Dry Cleaning - Dresses", price: "₹179", description: "Varies by style" },
+          { service: "Comforters/Blankets", price: "₹1,599", description: "Queen size" },
+          { service: "Wedding Dress Cleaning", price: "₹5,999", description: "Includes preservation box" }
+        ]
+      }
     }
   };
 
   const currentOutlet = outlets.find(outlet => outlet.id === selectedOutlet);
   const currentPricing = pricingByOutlet[selectedOutlet as keyof typeof pricingByOutlet];
+
+  const toggleCategory = (categoryId: string) => {
+    setOpenCategories(prev => 
+      prev.includes(categoryId) 
+        ? prev.filter(id => id !== categoryId)
+        : [...prev, categoryId]
+    );
+  };
 
   return (
     <div className="min-h-screen bg-black">
@@ -113,8 +141,8 @@ const Pricing = () => {
         </div>
       </section>
 
-      {/* Category-wise Pricing */}
-      <section id="pricing-table" className="py-12 px-4 sm:py-16 bg-gray-900">
+      {/* Category-wise Pricing with Collapsible Design */}
+      <section id="pricing-table" className="py-12 px-4 sm:py-16 bg-black">
         <div className="container mx-auto">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
@@ -123,35 +151,61 @@ const Pricing = () => {
             <p className="text-lg sm:text-xl text-gray-300">Organized by service categories</p>
           </div>
           
-          <div className="max-w-4xl mx-auto space-y-8">
-            {Object.entries(currentPricing).map(([category, services]) => (
-              <Card key={category} className="bg-gray-800 border-gray-700">
-                <CardHeader>
-                  <CardTitle className="text-xl text-white">{category}</CardTitle>
-                </CardHeader>
-                <CardContent className="p-4 sm:p-6">
-                  <div className="grid grid-cols-1 gap-4">
-                    {services.map((item, index) => (
-                      <div key={index} className="flex justify-between items-center py-3 border-b border-gray-600 last:border-b-0">
-                        <div className="flex-1 pr-4">
-                          <h3 className="font-semibold text-white text-sm sm:text-base">{item.service}</h3>
-                          <p className="text-xs sm:text-sm text-gray-400">{item.description}</p>
+          <div className="max-w-4xl mx-auto space-y-4">
+            {Object.entries(currentPricing).map(([categoryId, category]) => (
+              <Collapsible
+                key={categoryId}
+                open={openCategories.includes(categoryId)}
+                onOpenChange={() => toggleCategory(categoryId)}
+              >
+                <CollapsibleTrigger asChild>
+                  <div className="w-full">
+                    <Card className="bg-blue-600 border-blue-500 hover:bg-blue-700 transition-colors cursor-pointer">
+                      <CardHeader className="py-4">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className="text-white">
+                              {category.icon}
+                            </div>
+                            <div className="text-left">
+                              <CardTitle className="text-xl text-white">{category.title}</CardTitle>
+                              <CardDescription className="text-blue-100">{category.subtitle}</CardDescription>
+                            </div>
+                          </div>
+                          <div className="text-white">
+                            {openCategories.includes(categoryId) ? 
+                              <ChevronUp className="w-6 h-6" /> : 
+                              <ChevronDown className="w-6 h-6" />
+                            }
+                          </div>
                         </div>
-                        <div className="text-right flex-shrink-0">
-                          <span className="text-sm sm:text-lg font-bold text-yellow-400">{item.price}</span>
-                        </div>
-                      </div>
+                      </CardHeader>
+                    </Card>
+                  </div>
+                </CollapsibleTrigger>
+                <CollapsibleContent>
+                  <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {category.services.map((item, index) => (
+                      <Card key={index} className="bg-white">
+                        <CardContent className="p-6">
+                          <div className="text-center">
+                            <h3 className="font-semibold text-lg mb-2 text-gray-900">{item.service}</h3>
+                            <div className="text-2xl font-bold text-blue-600 mb-2">{item.price}</div>
+                            <p className="text-sm text-gray-600">{item.description}</p>
+                          </div>
+                        </CardContent>
+                      </Card>
                     ))}
                   </div>
-                </CardContent>
-              </Card>
+                </CollapsibleContent>
+              </Collapsible>
             ))}
           </div>
         </div>
       </section>
 
       {/* Pricing Calculator */}
-      <section className="py-12 px-4 sm:py-16 bg-black">
+      <section className="py-12 px-4 sm:py-16 bg-gray-900">
         <div className="container mx-auto">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Calculate Your Cost</h2>
@@ -163,7 +217,7 @@ const Pricing = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-12 px-4 sm:py-16 bg-gray-900">
+      <section className="py-12 px-4 sm:py-16 bg-black">
         <div className="container mx-auto">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Pricing FAQ</h2>
