@@ -2,8 +2,6 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@2.0.0";
 
-const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
-
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers":
@@ -25,12 +23,28 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
+    // Check if Resend API key is available
+    const resendApiKey = Deno.env.get("RESEND_API_KEY");
+    if (!resendApiKey) {
+      console.error("RESEND_API_KEY is not set");
+      return new Response(
+        JSON.stringify({ error: "Email service not configured" }),
+        {
+          status: 500,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
+
     console.log("Processing form email request...");
     const requestBody = await req.text();
     console.log("Request body:", requestBody);
     
     const { formType, data }: FormEmailRequest = JSON.parse(requestBody);
     console.log("Parsed form data:", { formType, data });
+
+    // Initialize Resend here after confirming API key exists
+    const resend = new Resend(resendApiKey);
 
     let subject = "";
     let htmlContent = "";
@@ -84,9 +98,18 @@ const handler = async (req: Request): Promise<Response> => {
   } catch (error: any) {
     console.error("Error in send-form-email function:", error);
     console.error("Error stack:", error.stack);
+    
+    // Provide more specific error messages
+    let errorMessage = error.message;
+    if (error.message?.includes('API key')) {
+      errorMessage = "Invalid or missing API key for email service";
+    } else if (error.message?.includes('domain')) {
+      errorMessage = "Email domain not verified. Please verify your domain at https://resend.com/domains";
+    }
+    
     return new Response(
       JSON.stringify({ 
-        error: error.message,
+        error: errorMessage,
         details: error.stack 
       }),
       {
