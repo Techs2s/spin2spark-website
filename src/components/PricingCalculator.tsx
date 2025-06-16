@@ -15,12 +15,12 @@ const PricingCalculator = () => {
   });
 
   const prices = {
-    washFold: 100, // per kg
-    shirts: 299,
-    pants: 499,
-    dresses: 899,
-    suits: 1399,
-    comforters: 1799
+    washFold: 79, // per kg
+    shirts: 89,
+    pants: 89,
+    dresses: 199,
+    suits: 279,
+    comforters: 399
   };
 
   const updateItem = (item: keyof typeof items, increment: boolean) => {

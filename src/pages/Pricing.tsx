@@ -54,7 +54,7 @@ const Pricing = () => {
         icon: <Sparkles className="w-6 h-6" />,
         services: [
           { service: "Dry Cleaning - Shirts", price: "₹89", description: "Professional pressing included" },
-          { service: "Dry Cleaning - Pants", price: "₹129", description: "Creased and pressed" },
+          { service: "Dry Cleaning - Pants", price: "₹89", description: "Creased and pressed" },
           { service: "Dry Cleaning - Suits", price: "₹299", description: "Jacket and pants" },
           { service: "Dry Cleaning - Dresses", price: "₹199", description: "Varies by style" },
           { service: "Comforters/Blankets", price: "₹1,799", description: "Queen size" },
