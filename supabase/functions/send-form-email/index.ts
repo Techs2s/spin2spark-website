@@ -16,13 +16,21 @@ interface FormEmailRequest {
 }
 
 const handler = async (req: Request): Promise<Response> => {
+  console.log(`Received ${req.method} request to send-form-email function`);
+  
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
+    console.log("Handling CORS preflight request");
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    const { formType, data }: FormEmailRequest = await req.json();
+    console.log("Processing form email request...");
+    const requestBody = await req.text();
+    console.log("Request body:", requestBody);
+    
+    const { formType, data }: FormEmailRequest = JSON.parse(requestBody);
+    console.log("Parsed form data:", { formType, data });
 
     let subject = "";
     let htmlContent = "";
@@ -55,6 +63,7 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     console.log(`Sending ${formType} form email to support@spin2spark.com`);
+    console.log("Email subject:", subject);
 
     const emailResponse = await resend.emails.send({
       from: "Spin2Spark Forms <onboarding@resend.dev>",
@@ -74,8 +83,12 @@ const handler = async (req: Request): Promise<Response> => {
     });
   } catch (error: any) {
     console.error("Error in send-form-email function:", error);
+    console.error("Error stack:", error.stack);
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ 
+        error: error.message,
+        details: error.stack 
+      }),
       {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },
