@@ -10,29 +10,23 @@ const Outlets = () => {
   const outlets = [
     {
       id: 1,
-      name: "Downtown Central",
-      address: "123 MG Road, City Center, Mumbai 400001",
+      name: "Spin2Spark Hoodi",
+      address: "S.Babureddy Complex, Seetharam Palya, Bengaluru 560048",
       phone: "+91 7090100080",
-      timing: "7:00 AM - 9:00 PM",
-      rating: 4.8,
-      reviews: 245,
-      services: ["Wash & Fold", "Dry Cleaning", "Express Service"],
-      image: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=400&h=300&fit=crop",
-      manager: "Rajesh Kumar",
-      specialties: ["Same-day service", "Corporate accounts", "Wedding dress cleaning"]
+      timing: "9:00 AM - 9:00 PM",
+      rating: 4.7,
+      reviews: 33,
+      image: "https://lh3.googleusercontent.com/p/AF1QipPFqRyc7NwOUTC4LYOYIomBFjDAp2h6JC61lpXd=s1360-w1360-h1020-rw"
     },
     {
       id: 2,
-      name: "Residential Hub",
-      address: "456 Linking Road, Bandra West, Mumbai 400050",
-      phone: "+91 7090100080",
-      timing: "6:30 AM - 10:00 PM",
-      rating: 4.9,
-      reviews: 189,
-      services: ["Wash & Fold", "Commercial Laundry", "Alterations"],
-      image: "https://images.unsplash.com/photo-1517677129300-07b130802f46?w=400&h=300&fit=crop",
-      manager: "Priya Sharma",
-      specialties: ["Bulk orders", "Pickup service", "Eco-friendly cleaning"]
+      name: "Spin2Spark Aecs",
+      address: "Vaikuntam Layout, AECS Layout, Bengaluru, 560037",
+      phone: "+91 7090100081",
+      timing: "9:00 AM - 9:00 PM",
+      rating: 4.6,
+      reviews: 29,
+      image: "https://lh3.googleusercontent.com/p/AF1QipMly0x13n1V9Lcwqsqh5pYt21EkAJGj9nOFEazf=s1360-w1360-h1020-rw"
     }
   ];
 
