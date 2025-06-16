@@ -78,8 +78,8 @@ const About = () => {
               </div>
               <div className="order-1 lg:order-2 aspect-square rounded-lg overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1721322800607-8c38375eef04" 
-                  alt="Modern laundry room with washing machines and clean environment"
+                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=400&fit=crop" 
+                  alt="Professional laundry team working in modern facility"
                   className="w-full h-full object-cover"
                 />
               </div>

@@ -16,18 +16,26 @@ interface ServiceCardProps {
 }
 
 const ServiceCard = ({ title, description, price, image, features }: ServiceCardProps) => {
-  // Use laundry-related clipart for all service cards
-  const getLaundryClipArt = (originalImage: string) => {
-    // Use laundry room/washing machine clipart
-    return "https://images.unsplash.com/photo-1721322800607-8c38375eef04";
+  // Use specific laundry service images
+  const getServiceImage = (title: string) => {
+    switch(title) {
+      case "Wash & Fold":
+        return "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=400&h=300&fit=crop";
+      case "Dry Cleaning":
+        return "https://images.unsplash.com/photo-1517677129300-07b130802f46?w=400&h=300&fit=crop";
+      case "Commercial Laundry":
+        return "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&h=300&fit=crop";
+      default:
+        return image;
+    }
   };
 
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-gray-800 border-gray-700">
       <div className="aspect-video overflow-hidden">
         <img 
-          src={getLaundryClipArt(image)} 
-          alt={`${title} laundry service equipment`}
+          src={getServiceImage(title)} 
+          alt={`${title} laundry service`}
           className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
         />
       </div>
