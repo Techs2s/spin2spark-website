@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BookingForm from "@/components/BookingForm";
@@ -144,8 +143,8 @@ const Contact = () => {
                   <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-black" />
                 </div>
                 <h3 className="font-semibold text-base sm:text-lg mb-2 text-white">Visit Us</h3>
-                <p className="text-gray-300 text-sm sm:text-base">123 Main St</p>
-                <p className="text-xs sm:text-sm text-gray-400 mt-1">City, State 12345</p>
+                <p className="text-gray-300 text-sm sm:text-base">Seetharam Palya</p>
+                <p className="text-xs sm:text-sm text-gray-400 mt-1">Bengaluru, Karnataka</p>
               </CardContent>
             </Card>
 
@@ -269,12 +268,17 @@ const Contact = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="aspect-video bg-gray-700 rounded-lg flex items-center justify-center mb-4">
-                    <p className="text-gray-400 text-sm sm:text-base">Interactive Map Coming Soon</p>
+                    <img 
+                      src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e" 
+                      alt="Automated laundry technology representation"
+                      className="w-full h-full object-cover rounded-lg"
+                    />
                   </div>
                   <div className="space-y-2">
                     <p className="font-medium text-white text-sm sm:text-base">Spin2Spark Laundry Services</p>
-                    <p className="text-gray-300 text-sm sm:text-base">123 Main Street</p>
-                    <p className="text-gray-300 text-sm sm:text-base">City, State 12345</p>
+                    <p className="text-gray-300 text-sm sm:text-base">6, S.Babureddy Complex</p>
+                    <p className="text-gray-300 text-sm sm:text-base">Seetharam Palya Main Road</p>
+                    <p className="text-gray-300 text-sm sm:text-base">Bengaluru, Karnataka 560048</p>
                     <p className="text-gray-300 text-sm sm:text-base">India</p>
                   </div>
                 </CardContent>

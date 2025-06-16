@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 const Footer = () => {
@@ -61,23 +62,29 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
-            <div className="space-y-3 text-gray-400">
+            <h3 className="text-lg font-semibold mb-4 text-yellow-400">Contact Info</h3>
+            <div className="space-y-4 text-gray-400">
               <div className="flex items-center space-x-3">
-                <Phone className="w-4 h-4" />
-                <span>+91 7090100080</span>
+                <Phone className="w-5 h-5 text-yellow-400 flex-shrink-0" />
+                <span className="text-white font-medium">+91 7090100080</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="w-4 h-4" />
-                <span>support@spin2spark.com</span>
+                <Mail className="w-5 h-5 text-yellow-400 flex-shrink-0" />
+                <span className="text-white font-medium">support@spin2spark.com</span>
+              </div>
+              <div className="flex items-start space-x-3">
+                <MapPin className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
+                <div className="text-white font-medium leading-relaxed">
+                  <div>6, S.Babureddy Complex</div>
+                  <div>Opp Govt School, Seetharam Palya</div>
+                  <div>Main Road, Near Basava Nagar</div>
+                  <div>Govt School, Bengaluru</div>
+                  <div className="text-yellow-400 font-semibold">Karnataka 560048</div>
+                </div>
               </div>
               <div className="flex items-center space-x-3">
-                <MapPin className="w-4 h-4" />
-                <span>6, S.Babureddy Complex, opp Govt School, Seetharam Palya, Main, Road, near Basava nagar govt school, Bengaluru, Karnataka 560048</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Clock className="w-4 h-4" />
-                <span>Mon-Sun: 9AM-9PM</span>
+                <Clock className="w-5 h-5 text-yellow-400 flex-shrink-0" />
+                <span className="text-white font-medium">Mon-Sun: 9AM-9PM</span>
               </div>
             </div>
           </div>
