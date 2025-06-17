@@ -269,8 +269,8 @@ const Contact = () => {
                 <CardContent>
                   <div className="aspect-video bg-gray-700 rounded-lg flex items-center justify-center mb-4">
                     <img 
-                      src="https://images.unsplash.com/photo-1721322800607-8c38375eef04" 
-                      alt="Modern laundry facility with professional equipment"
+                      src="/lovable-uploads/dee430f5-9ad7-4770-8d62-af9c4d81738d.png" 
+                      alt="Spin2Spark laundry storefront in Hoodi, Bangalore"
                       className="w-full h-full object-cover rounded-lg"
                     />
                   </div>
