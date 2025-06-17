@@ -163,7 +163,7 @@ const Outlets = () => {
       </section>
 
       {/* Service Areas */}
-      <section className="py-12 px-4 sm:py-16 bg-black">
+      <section className="py-12 px-4 sm:py-16 bg-black border-t-4 border-b-4 border-yellow-400">
         <div className="container mx-auto">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Service Coverage</h2>
