@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -17,7 +16,7 @@ const Outlets = () => {
       timing: "9:00 AM - 9:00 PM",
       rating: 4.7,
       reviews: 33,
-      image: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=500&h=300&fit=crop",
+      image: "/lovable-uploads/a62a405e-f37c-4503-99d2-c7bebfa35958.png",
       services: ["Wash & Fold", "Dry Cleaning", "Ironing", "Express Service"],
       specialties: ["Premium fabric care", "Same-day delivery", "Eco-friendly cleaning", "Expert stain removal"]
     },
@@ -29,7 +28,7 @@ const Outlets = () => {
       timing: "9:00 AM - 9:00 PM",
       rating: 4.6,
       reviews: 29,
-      image: "https://images.unsplash.com/photo-1517677129300-07b130802f46?w=500&h=300&fit=crop",
+      image: "/lovable-uploads/f08f07d0-a138-4263-a4ed-31460e602411.png",
       services: ["Wash & Fold", "Dry Cleaning", "Ironing", "Pickup & Delivery"],
       specialties: ["Quick turnaround", "Delicate fabric handling", "Professional pressing", "Quality assurance"]
     }
