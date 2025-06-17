@@ -13,8 +13,8 @@ import BookingForm from "@/components/BookingForm";
 const Index = () => {
   const services = [
     {
-      title: "Wash & Fold",
-      description: "Professional washing, drying, and folding service",
+      title: "Basic Laundry",
+      description: "Professional washing, folding, shoe cleaning and ironing service",
       price: "From ₹79/kg",
       image: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=400&h=300&fit=crop",
       features: ["Free pickup & delivery", "24-72 hour turnaround", "Eco-friendly detergents"]
