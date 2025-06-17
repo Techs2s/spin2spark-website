@@ -1,3 +1,4 @@
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -40,7 +41,7 @@ const Outlets = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-black">
       <Header />
       
       {/* Hero Section */}
@@ -50,7 +51,7 @@ const Outlets = () => {
             <h1 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 leading-tight">
               Our Service Outlets
             </h1>
-            <p className="text-lg sm:text-xl text-gray-300 mb-6 sm:mb-8 px-4">
+            <p className="text-lg sm:text-xl text-yellow-100 mb-6 sm:mb-8 px-4">
               Find the nearest Spin2Spark outlet for convenient pickup and delivery services. 
               Quality laundry care at locations across the city.
             </p>
@@ -73,11 +74,11 @@ const Outlets = () => {
       </section>
 
       {/* Outlets Grid */}
-      <section className="py-12 px-4 sm:py-16">
+      <section className="py-12 px-4 sm:py-16 bg-black">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {outlets.map((outlet) => (
-              <Card key={outlet.id} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <Card key={outlet.id} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-gray-900 border-gray-700">
                 <div className="aspect-video overflow-hidden rounded-t-lg">
                   <img 
                     src={outlet.image} 
@@ -87,23 +88,23 @@ const Outlets = () => {
                 </div>
                 <CardHeader className="pb-3">
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
-                    <CardTitle className="text-lg sm:text-xl">{outlet.name}</CardTitle>
+                    <CardTitle className="text-lg sm:text-xl text-white">{outlet.name}</CardTitle>
                     <div className="flex items-center">
                       <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                      <span className="ml-1 text-sm font-semibold">{outlet.rating}</span>
-                      <span className="ml-1 text-sm text-gray-500">({outlet.reviews})</span>
+                      <span className="ml-1 text-sm font-semibold text-yellow-400">{outlet.rating}</span>
+                      <span className="ml-1 text-sm text-gray-400">({outlet.reviews})</span>
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent className="pt-0">
                   <div className="space-y-3 mb-4">
-                    <div className="flex items-start text-sm text-gray-600">
-                      <MapPin className="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" />
+                    <div className="flex items-start text-sm text-gray-300">
+                      <MapPin className="w-4 h-4 mr-2 mt-0.5 flex-shrink-0 text-yellow-400" />
                       <span className="text-xs sm:text-sm">{outlet.address}</span>
                     </div>
-                    <div className="flex items-center justify-between text-sm text-gray-600">
+                    <div className="flex items-center justify-between text-sm text-gray-300">
                       <div className="flex items-center">
-                        <Phone className="w-4 h-4 mr-2 flex-shrink-0" />
+                        <Phone className="w-4 h-4 mr-2 flex-shrink-0 text-yellow-400" />
                         <span className="text-xs sm:text-sm">{outlet.phone}</span>
                       </div>
                       <Button
@@ -116,17 +117,17 @@ const Outlets = () => {
                         <MessageCircle className="w-4 h-4 fill-current" />
                       </Button>
                     </div>
-                    <div className="flex items-center text-sm text-gray-600">
-                      <Clock className="w-4 h-4 mr-2 flex-shrink-0" />
+                    <div className="flex items-center text-sm text-gray-300">
+                      <Clock className="w-4 h-4 mr-2 flex-shrink-0 text-yellow-400" />
                       <span className="text-xs sm:text-sm">{outlet.timing}</span>
                     </div>
                   </div>
 
                   <div className="mb-4">
-                    <h4 className="font-semibold text-sm mb-2">Services Available:</h4>
+                    <h4 className="font-semibold text-sm mb-2 text-yellow-400">Services Available:</h4>
                     <div className="flex flex-wrap gap-1">
                       {outlet.services.map((service, index) => (
-                        <Badge key={index} variant="secondary" className="text-xs">
+                        <Badge key={index} variant="secondary" className="text-xs bg-gray-800 text-gray-300 border-gray-700">
                           {service}
                         </Badge>
                       ))}
@@ -134,8 +135,8 @@ const Outlets = () => {
                   </div>
 
                   <div className="mb-4">
-                    <h4 className="font-semibold text-sm mb-2">Specialties:</h4>
-                    <ul className="text-xs text-gray-600 space-y-1">
+                    <h4 className="font-semibold text-sm mb-2 text-yellow-400">Specialties:</h4>
+                    <ul className="text-xs text-gray-300 space-y-1">
                       {outlet.specialties.map((specialty, index) => (
                         <li key={index} className="flex items-center">
                           <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full mr-2 flex-shrink-0"></div>
@@ -151,7 +152,7 @@ const Outlets = () => {
                         Schedule Pickup
                       </Button>
                     </Link>
-                    <Button variant="outline" className="w-full border-gray-300 text-gray-700 hover:bg-gray-50 text-sm">
+                    <Button variant="outline" className="w-full border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black text-sm">
                       Get Directions
                     </Button>
                   </div>
@@ -163,18 +164,18 @@ const Outlets = () => {
       </section>
 
       {/* Service Areas */}
-      <section className="py-12 px-4 sm:py-16">
+      <section className="py-12 px-4 sm:py-16 bg-black">
         <div className="container mx-auto">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Service Coverage</h2>
-            <p className="text-lg sm:text-xl text-gray-600">We serve East Bengaluru with free pickup and delivery</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Service Coverage</h2>
+            <p className="text-lg sm:text-xl text-yellow-100">We serve East Bengaluru with free pickup and delivery</p>
           </div>
           <div className="max-w-md mx-auto text-center">
-            <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <MapPin className="w-8 h-8 text-yellow-600" />
+            <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+              <MapPin className="w-8 h-8 text-black" />
             </div>
-            <h3 className="font-semibold text-lg mb-2">East Bengaluru</h3>
-            <p className="text-gray-600 text-sm">Whitefield, ITPL, Marathahalli, Brookefield, Varthur, Sarjapur, Hoodi, AECS Layout</p>
+            <h3 className="font-semibold text-lg mb-2 text-yellow-400">East Bengaluru</h3>
+            <p className="text-gray-300 text-sm">Whitefield, ITPL, Marathahalli, Brookefield, Varthur, Sarjapur, Hoodi, AECS Layout</p>
           </div>
         </div>
       </section>
