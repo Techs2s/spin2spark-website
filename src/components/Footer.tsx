@@ -1,20 +1,30 @@
 
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+
 const Footer = () => {
   const handleImageError = (imageName: string) => {
     console.log(`Footer image failed to load: ${imageName}`);
   };
+
   const handleImageLoad = (imageName: string) => {
     console.log(`Footer image loaded successfully: ${imageName}`);
   };
-  return <footer className="bg-black text-white border-t border-gray-800">
+
+  return (
+    <footer className="bg-black text-white border-t border-gray-800">
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <img src="/lovable-uploads/0dfb919c-c65a-49a8-a860-cf8de6dd85bd.png" alt="Spin2Spark Icon" className="h-10 w-10" onError={() => handleImageError('footer icon')} onLoad={() => handleImageLoad('footer icon')} />
+              <img 
+                src="/lovable-uploads/0dfb919c-c65a-49a8-a860-cf8de6dd85bd.png" 
+                alt="Spin2Spark Icon" 
+                className="h-10 w-10" 
+                onError={() => handleImageError('footer icon')} 
+                onLoad={() => handleImageLoad('footer icon')} 
+              />
               <div className="flex flex-col justify-center">
                 <span className="text-2xl font-bold text-yellow-400 leading-tight">Spin2Spark</span>
                 <span className="text-xs text-yellow-300 leading-tight -mt-1">Laundry | Dry Cleaning | Ironing</span>
@@ -53,10 +63,10 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-gray-400">
-              <li><Link to="/pricing#pricing-table" className="hover:text-yellow-400 transition-colors">Pricing</Link></li>
-              <li><Link to="/about#about-us" className="hover:text-yellow-400 transition-colors">About Us</Link></li>
-              <li><Link to="/contact#contact-info" className="hover:text-yellow-400 transition-colors">Contact</Link></li>
-              <li><Link to="/services#faq" className="hover:text-yellow-400 transition-colors">FAQ</Link></li>
+              <li><Link to="/pricing" className="hover:text-yellow-400 transition-colors">Pricing</Link></li>
+              <li><Link to="/about" className="hover:text-yellow-400 transition-colors">About Us</Link></li>
+              <li><Link to="/contact" className="hover:text-yellow-400 transition-colors">Contact</Link></li>
+              <li><Link to="/services" className="hover:text-yellow-400 transition-colors">FAQ</Link></li>
             </ul>
           </div>
 
@@ -94,6 +104,8 @@ const Footer = () => {
           <p>&copy; 2024 Spin2Spark Laundry Services. All rights reserved.</p>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;
