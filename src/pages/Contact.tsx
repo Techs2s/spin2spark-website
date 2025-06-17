@@ -123,7 +123,7 @@ const Contact = () => {
                 </div>
                 <h3 className="font-semibold text-base sm:text-lg mb-2 text-white">Call Us</h3>
                 <p className="text-gray-300 text-sm sm:text-base">+91 7090100080</p>
-                <p className="text-xs sm:text-sm text-gray-400 mt-1">Mon-Sat: 7AM-9PM</p>
+                <p className="text-xs sm:text-sm text-gray-400 mt-1">Mon-Sun: 9AM-9PM</p>
               </CardContent>
             </Card>
 
@@ -155,8 +155,7 @@ const Contact = () => {
                   <Clock className="w-6 h-6 sm:w-8 sm:h-8 text-black" />
                 </div>
                 <h3 className="font-semibold text-base sm:text-lg mb-2 text-white">Hours</h3>
-                <p className="text-gray-300 text-sm sm:text-base">Mon-Sat: 9AM-9PM</p>
-                <p className="text-xs sm:text-sm text-gray-400 mt-1">Sunday: 9AM-6PM</p>
+                <p className="text-gray-300 text-sm sm:text-base">Mon-Sun: 9AM-9PM</p>
               </CardContent>
             </Card>
           </div>
