@@ -16,21 +16,21 @@ const Index = () => {
       title: "Basic Laundry",
       description: "Professional washing, folding, shoe cleaning and ironing service",
       price: "From ₹79/kg",
-      image: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/3ce5c19c-ea4b-482e-810f-a1c2e7836f31.png",
       features: ["Free pickup & delivery", "24-72 hour turnaround", "Eco-friendly detergents"]
     },
     {
       title: "Dry Cleaning",
       description: "Expert dry cleaning for delicate and formal wear",
       price: "Varies by item",
-      image: "https://images.unsplash.com/photo-1517677129300-07b130802f46?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/05d30b76-cc9e-4a94-be65-34b11ddea9ad.png",
       features: ["Same-day service available", "Stain treatment", "Professional pressing"]
     },
     {
       title: "Commercial Laundry",
       description: "Bulk laundry services for businesses and institutions",
       price: "Custom pricing",
-      image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&h=300&fit=crop",
+      image: "/lovable-uploads/d1c5f265-97fe-48dc-9eee-a6a1cf96158b.png",
       features: ["Volume discounts", "Scheduled pickups", "Quality guarantee"]
     }
   ];
