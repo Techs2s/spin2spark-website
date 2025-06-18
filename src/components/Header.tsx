@@ -9,6 +9,7 @@ import BookingForm from "@/components/BookingForm";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const location = useLocation();
   
   const navItems = [
@@ -30,6 +31,13 @@ const Header = () => {
 
   const handleImageLoad = (imageName: string) => {
     console.log(`Image loaded successfully: ${imageName}`);
+  };
+
+  const handleMobileBookingClick = () => {
+    setIsOpen(false); // Close mobile menu first
+    setTimeout(() => {
+      setIsDialogOpen(true); // Then open dialog with slight delay
+    }, 100);
   };
 
   return (
@@ -130,23 +138,26 @@ const Header = () => {
                     <Phone className="w-4 h-4" />
                     <span className="text-sm font-medium">+91 7090100080</span>
                   </div>
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <Button className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold" onClick={() => setIsOpen(false)}>
-                        Schedule Pickup
-                      </Button>
-                    </DialogTrigger>
-                    <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
-                      <DialogHeader>
-                        <DialogTitle>Schedule Your Pickup</DialogTitle>
-                      </DialogHeader>
-                      <BookingForm />
-                    </DialogContent>
-                  </Dialog>
+                  <Button 
+                    className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold" 
+                    onClick={handleMobileBookingClick}
+                  >
+                    Schedule Pickup
+                  </Button>
                 </div>
               </div>
             </SheetContent>
           </Sheet>
+
+          {/* Mobile Dialog - Separate from Sheet */}
+          <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+            <DialogContent className="max-w-[95vw] sm:max-w-2xl max-h-[90vh] overflow-y-auto mx-4">
+              <DialogHeader>
+                <DialogTitle>Schedule Your Pickup</DialogTitle>
+              </DialogHeader>
+              <BookingForm onSuccess={() => setIsDialogOpen(false)} />
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
     </header>
