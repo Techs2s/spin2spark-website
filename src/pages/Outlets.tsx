@@ -39,6 +39,12 @@ const Outlets = () => {
     window.open(whatsappUrl, '_blank');
   };
 
+  const handleGetDirections = (address: string) => {
+    const encodedAddress = encodeURIComponent(address);
+    const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodedAddress}`;
+    window.open(mapsUrl, '_blank');
+  };
+
   return (
     <div className="min-h-screen bg-black">
       <Header />
@@ -151,7 +157,11 @@ const Outlets = () => {
                         Schedule Pickup
                       </Button>
                     </Link>
-                    <Button variant="outline" className="w-full border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black text-sm">
+                    <Button 
+                      variant="outline" 
+                      className="w-full border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black text-sm"
+                      onClick={() => handleGetDirections(outlet.address)}
+                    >
                       Get Directions
                     </Button>
                   </div>
